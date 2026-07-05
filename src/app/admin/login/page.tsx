@@ -18,15 +18,24 @@ export default function AdminLoginPage() {
     setError("");
     setLoading(true);
 
-    // Simulate API call
-    await new Promise((r) => setTimeout(r, 800));
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
 
-    if (username === "admin" && password === "admin123") {
-      localStorage.setItem("admin_auth", "true");
-      localStorage.setItem("admin_user", username);
-      router.push("/admin");
-    } else {
-      setError("Invalid username or password");
+      const data = await res.json();
+
+      if (data.success) {
+        localStorage.setItem("admin_auth", "true");
+        localStorage.setItem("admin_user", JSON.stringify(data.user));
+        router.push("/admin");
+      } else {
+        setError(data.error || "Invalid username or password");
+      }
+    } catch {
+      setError("Connection error. Please try again.");
     }
     setLoading(false);
   };
@@ -128,7 +137,7 @@ export default function AdminLoginPage() {
 
           <div className="mt-6 rounded-xl bg-gold-50 p-4 dark:bg-gold-900/20">
             <p className="text-xs text-text-light dark:text-white/60 text-center">
-              <strong className="text-secondary">Demo Credentials:</strong>
+              <strong className="text-secondary">Default Credentials:</strong>
               <br />
               Username: <code className="font-mono">admin</code> | Password:{" "}
               <code className="font-mono">admin123</code>

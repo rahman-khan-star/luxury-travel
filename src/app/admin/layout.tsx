@@ -45,12 +45,21 @@ export default function AdminLayout({
 
   useEffect(() => {
     setMounted(true);
-    const auth = localStorage.getItem("admin_auth");
-    if (auth === "true") {
-      setIsLoggedIn(true);
-    } else if (pathname !== "/admin/login") {
-      router.push("/admin/login");
-    }
+    // Verify auth via API cookie
+    fetch("/api/auth/me")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.authenticated) {
+          setIsLoggedIn(true);
+        } else if (pathname !== "/admin/login") {
+          router.push("/admin/login");
+        }
+      })
+      .catch(() => {
+        if (pathname !== "/admin/login") {
+          router.push("/admin/login");
+        }
+      });
   }, [pathname, router]);
 
   if (pathname === "/admin/login") {
@@ -74,8 +83,10 @@ export default function AdminLayout({
     return null;
   }
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await fetch("/api/auth/logout", { method: "POST" });
     localStorage.removeItem("admin_auth");
+    localStorage.removeItem("admin_user");
     router.push("/admin/login");
   };
 
