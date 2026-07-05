@@ -52,8 +52,6 @@ export default function AdminLayout({
       router.push("/admin/login");
     }
   }, [pathname, router]);
-    }
-  }, [pathname, router]);
 
   if (pathname === "/admin/login") {
     return <>{children}</>;
