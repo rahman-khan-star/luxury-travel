@@ -1,0 +1,12 @@
+export { HeroSection } from "./hero-section";
+export { SearchTrips } from "./search-trips";
+export { FeaturedDestinations } from "./featured-destinations";
+export { PopularPackages } from "./popular-packages";
+export { VisaServices } from "./visa-services";
+export { WhyChooseUs } from "./why-choose-us";
+export { Testimonials } from "./testimonials";
+export { Gallery } from "./gallery";
+export { Statistics } from "./statistics";
+export { LatestBlog } from "./latest-blog";
+export { FAQ } from "./faq";
+export { ContactCTA } from "./contact-cta";
