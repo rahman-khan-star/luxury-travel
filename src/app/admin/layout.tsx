@@ -41,8 +41,10 @@ export default function AdminLayout({
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const auth = localStorage.getItem("admin_auth");
     if (auth === "true") {
       setIsLoggedIn(true);
@@ -50,9 +52,24 @@ export default function AdminLayout({
       router.push("/admin/login");
     }
   }, [pathname, router]);
+    }
+  }, [pathname, router]);
 
   if (pathname === "/admin/login") {
     return <>{children}</>;
+  }
+
+  if (!mounted) {
+    return (
+      <div className="flex h-screen items-center justify-center bg-background">
+        <div className="text-center">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl gradient-gold mx-auto mb-3">
+            <span className="text-sm font-bold text-white">WA</span>
+          </div>
+          <p className="text-sm text-text-light dark:text-white/60">Loading...</p>
+        </div>
+      </div>
+    );
   }
 
   if (!isLoggedIn) {
