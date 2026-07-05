@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "Terms and Conditions for Luxury Travel",
+  description: "Terms and Conditions for Wadi Al Dhaid Tours LLC",
 };
 
 export default function TermsPage() {
@@ -45,7 +45,7 @@ export default function TermsPage() {
             Liability
           </h2>
           <p>
-            Luxury Travel acts as an intermediary between travelers and travel
+            Wadi Al Dhaid Tours LLC acts as an intermediary between travelers and travel
             service providers. We are not liable for the acts, errors, or
             omissions of third-party suppliers.
           </p>

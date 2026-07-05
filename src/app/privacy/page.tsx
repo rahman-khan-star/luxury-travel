@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy Policy for Luxury Travel",
+  description: "Privacy Policy for Wadi Al Dhaid Tours LLC",
 };
 
 export default function PrivacyPage() {
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
         <div className="prose prose-gray dark:prose-invert max-w-none space-y-6 text-text-light dark:text-white/60">
           <p>Last updated: January 2026</p>
           <p>
-            Luxury Travel (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;)
+            Wadi Al Dhaid Tours LLC (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;)
             operates the website. This page informs you of our policies
             regarding the collection, use, and disclosure of personal
             information.
@@ -61,7 +61,7 @@ export default function PrivacyPage() {
           </h2>
           <p>
             If you have any questions about this Privacy Policy, please
-            contact us at info@luxurytravel.com or +971 50 123 4567.
+            contact us at info@luxurytravel.com or +92 342 900 5290.
           </p>
         </div>
       </div>

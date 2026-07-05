@@ -5,7 +5,7 @@ import { Award, Users, Globe, Heart, Shield, Target } from "lucide-react";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Luxury Travel — a premier travel agency crafting extraordinary experiences across Dubai, Pakistan, and worldwide destinations since 2014.",
+    "Learn about Wadi Al Dhaid Tours LLC — a premier travel agency crafting extraordinary experiences across Dubai, Pakistan, and worldwide destinations.",
 };
 
 const values = [
@@ -64,7 +64,7 @@ export default function AboutPage() {
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            About <span className="text-gradient-gold">Luxury Travel</span>
+            About <span className="text-gradient-gold">Wadi Al Dhaid Tours</span>
           </h1>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Crafting extraordinary journeys since 2014. We believe travel
@@ -123,7 +123,7 @@ export default function AboutPage() {
             <div className="relative h-[500px] rounded-2xl overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80"
-                alt="Luxury Travel Story"
+                alt="Wadi Al Dhaid Tours Story"
                 fill
                 className="object-cover"
               />

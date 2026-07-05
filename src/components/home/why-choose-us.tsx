@@ -67,7 +67,7 @@ export function WhyChooseUs() {
             className="mt-2 text-3xl sm:text-4xl font-bold text-text dark:text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Why Choose Luxury Travel
+            Why Choose Wadi Al Dhaid Tours
           </h2>
           <p className="mt-3 mx-auto max-w-2xl text-text-light dark:text-white/60">
             Over a decade of crafting extraordinary journeys with unmatched

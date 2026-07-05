@@ -51,7 +51,7 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-white leading-tight">
-                  LUXURY TRAVEL
+                  WADI AL DHAID TOURS
                 </span>
                 <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-secondary">
                   Premium Experiences
@@ -96,7 +96,7 @@ export function Footer() {
             <div className="space-y-2 text-sm text-white/60">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-secondary" />
-                +971 50 123 4567
+                +92 342 900 5290
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-secondary" />
@@ -133,7 +133,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-sm text-white/40">
-              &copy; {new Date().getFullYear()} Luxury Travel. All rights
+              &copy; {new Date().getFullYear()} Wadi Al Dhaid Tours LLC. All rights
               reserved.
             </p>
             <div className="flex items-center gap-4">

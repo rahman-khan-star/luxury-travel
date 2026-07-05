@@ -106,7 +106,7 @@ export default function ContactPage() {
                         <input
                           type="tel"
                           className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-text outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary dark:bg-navy-900 dark:border-white/10 dark:text-white"
-                          placeholder="+971 50 123 4567"
+                          placeholder="+92 342 900 5290"
                         />
                       </div>
                       <div className="sm:col-span-2">
@@ -149,7 +149,7 @@ export default function ContactPage() {
                 {
                   icon: Phone,
                   label: "Phone",
-                  value: "+971 50 123 4567",
+                  value: "+92 342 900 5290",
                   href: "tel:+971501234567",
                 },
                 {

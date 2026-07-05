@@ -12,8 +12,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Luxury Travel | Premium Travel Experiences in Dubai & Pakistan",
-    template: "%s | Luxury Travel",
+    default: "Wadi Al Dhaid Tours LLC | Premium Travel Experiences",
+    template: "%s | Wadi Al Dhaid Tours LLC",
   },
   description:
     "Experience the world in ultimate luxury. Premium travel packages, visa services, and Umrah packages for Dubai, Pakistan, and worldwide destinations.",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "Luxury Travel",
+    siteName: "Wadi Al Dhaid Tours LLC",
   },
   twitter: {
     card: "summary_large_image",

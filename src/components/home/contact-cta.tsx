@@ -51,7 +51,7 @@ export function ContactCTA() {
                 className="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:bg-white/20"
               >
                 <Phone className="h-4 w-4" />
-                +971 50 123 4567
+                +92 342 900 5290
               </a>
             </div>
           </motion.div>
