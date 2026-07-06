@@ -44,7 +44,7 @@ export default function AdminLayout({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = window.setTimeout(() => setMounted(true), 0);
     // Verify auth via API cookie
     fetch("/api/auth/me")
       .then((res) => res.json())
@@ -60,6 +60,8 @@ export default function AdminLayout({
           router.push("/admin/login");
         }
       });
+
+    return () => window.clearTimeout(timer);
   }, [pathname, router]);
 
   if (pathname === "/admin/login") {

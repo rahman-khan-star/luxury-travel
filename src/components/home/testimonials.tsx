@@ -37,7 +37,7 @@ export function Testimonials() {
         </motion.div>
 
         <div className="relative mx-auto max-w-4xl">
-          <div className="overflow-hidden rounded-2xl bg-white luxury-shadow dark:bg-navy-800 dark:border dark:border-white/10">
+          <div className="overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 dark:bg-white/5">
             <div className="grid md:grid-cols-2">
               <div className="relative h-64 md:h-auto">
                 <Image

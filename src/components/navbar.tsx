@@ -25,10 +25,14 @@ export function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = window.setTimeout(() => setMounted(true), 0);
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -59,7 +63,7 @@ export function Navbar() {
         className={cn(
           "sticky top-0 z-50 w-full transition-all duration-500",
           isScrolled
-            ? "bg-white/90 dark:bg-navy-900/90 backdrop-blur-xl shadow-lg"
+            ? "bg-white/20 dark:bg-navy-900/40 backdrop-blur-xl border-b border-white/10"
             : "bg-transparent"
         )}
       >
@@ -124,7 +128,7 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute left-0 top-full z-50 mt-1 w-56 rounded-xl bg-white p-2 luxury-shadow-lg dark:bg-navy-800"
+                      className="absolute left-0 top-full z-50 mt-1 w-56 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 p-2"
                     >
                       {link.children.map((child) => (
                         <Link
@@ -190,7 +194,7 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white dark:bg-navy-900 border-t border-border overflow-hidden"
+              className="lg:hidden bg-white/10 backdrop-blur-xl border-t border-white/20 overflow-hidden"
             >
               <div className="container-premium mx-auto px-4 py-4">
                 {navLinks.map((link) => (

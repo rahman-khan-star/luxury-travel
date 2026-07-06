@@ -54,9 +54,10 @@
   }
 
   body {
-    background: var(--background);
+    background: linear-gradient(135deg, #0B1220 0%, #111930 50%, #1A2240 100%);
     color: var(--foreground);
     font-family: var(--font-body);
+    min-height: 100vh;
   }
 
   * {
@@ -112,20 +113,16 @@
 
   .premium-card {
     border-radius: 1rem;
-    background-color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 1.5rem;
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.05),
-      0 10px 15px -3px rgba(0, 0, 0, 0.05),
-      0 20px 25px -5px rgba(0, 0, 0, 0.03);
     transition: all 0.3s;
   }
 
   .premium-card:hover {
-    box-shadow:
-      0 10px 15px -3px rgba(0, 0, 0, 0.08),
-      0 20px 25px -5px rgba(0, 0, 0, 0.04),
-      0 40px 50px -10px rgba(0, 0, 0, 0.03);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(201, 162, 39, 0.3);
     transform: translateY(-0.25rem);
   }
 

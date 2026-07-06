@@ -6,7 +6,7 @@ import { galleryItems } from "@/data";
 
 export function Gallery() {
   return (
-    <section className="section-padding bg-navy-50 dark:bg-navy-950">
+    <section className="section-padding">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

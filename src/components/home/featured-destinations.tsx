@@ -43,7 +43,7 @@ export function FeaturedDestinations() {
             >
               <Link
                 href={`/destinations/${dest.id}`}
-                className="group block overflow-hidden rounded-2xl bg-white luxury-shadow dark:bg-navy-800 dark:border dark:border-white/10"
+                className="group block overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 dark:bg-white/5"
               >
                 <div className="relative h-64 overflow-hidden">
                   <Image

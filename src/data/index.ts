@@ -72,28 +72,6 @@ export const destinations: Destination[] = [
     tags: ["adventure", "mountains", "trekking", "scenic"],
   },
   {
-    id: "karachi",
-    name: "Karachi",
-    country: "Pakistan",
-    description:
-      "Pakistan's vibrant coastal metropolis offers pristine beaches, rich history, and an incredible food scene that rivals the world's best.",
-    image: "https://images.unsplash.com/photo-1569949381669-ecf31ae8f6f8?w=800&q=80",
-    rating: 4.5,
-    priceFrom: 799,
-    tags: ["beach", "food", "culture", "nightlife"],
-  },
-  {
-    id: "abu-dhabi",
-    name: "Abu Dhabi",
-    country: "UAE",
-    description:
-      "The elegant capital of the UAE blends cultural richness with modern grandeur. Home to the stunning Sheikh Zayed Mosque and luxury resorts.",
-    image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&q=80",
-    rating: 4.8,
-    priceFrom: 1499,
-    tags: ["culture", "luxury", "mosque", "resorts"],
-  },
-  {
     id: "lahore",
     name: "Lahore",
     country: "Pakistan",

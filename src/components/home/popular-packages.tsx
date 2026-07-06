@@ -9,7 +9,7 @@ import { formatPrice } from "@/lib/utils";
 
 export function PopularPackages() {
   return (
-    <section className="section-padding bg-navy-50 dark:bg-navy-950">
+    <section className="section-padding">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export function PopularPackages() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group overflow-hidden rounded-2xl bg-white luxury-shadow dark:bg-navy-800 dark:border dark:border-white/10"
+              className="group overflow-hidden rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 dark:bg-white/5"
             >
               <div className="relative h-56 overflow-hidden">
                 <Image

@@ -9,7 +9,7 @@ export function FAQ() {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <section className="section-padding bg-navy-50 dark:bg-navy-950">
+    <section className="section-padding">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,7 +37,7 @@ export function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="overflow-hidden rounded-xl bg-white dark:bg-navy-800 dark:border dark:border-white/10"
+              className="overflow-hidden rounded-xl bg-white/10 backdrop-blur-md border border-white/15 dark:bg-white/5"
             >
               <button
                 onClick={() =>

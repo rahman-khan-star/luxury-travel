@@ -24,7 +24,7 @@ export function SearchTrips() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-2xl bg-white p-6 luxury-shadow-lg dark:bg-navy-800 dark:border dark:border-white/10"
+          className="rounded-2xl bg-white/10 backdrop-blur-md p-6 border border-white/20 dark:bg-white/5"
         >
           <div className="grid gap-4 md:grid-cols-4">
             <div className="space-y-2">
