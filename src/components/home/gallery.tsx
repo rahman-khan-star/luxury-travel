@@ -19,7 +19,7 @@ export function Gallery() {
             Gallery
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-text dark:text-white"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Travel Moments

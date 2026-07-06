@@ -22,7 +22,7 @@ export function PopularPackages() {
             Packages
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-text dark:text-white"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Popular Tour Packages
@@ -70,30 +70,30 @@ export function PopularPackages() {
                   </span>
                   <div className="flex items-center gap-1">
                     <Star className="h-3 w-3 fill-secondary text-secondary" />
-                    <span className="text-xs font-medium text-text dark:text-white">
+                    <span className="text-xs font-medium text-white">
                       {pkg.rating}
                     </span>
-                    <span className="text-xs text-text-light dark:text-white/40">
+                    <span className="text-xs text-white/50">
                       ({pkg.reviewCount})
                     </span>
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-text dark:text-white mb-1">
+                <h3 className="text-lg font-bold text-white mb-1">
                   {pkg.title}
                 </h3>
-                <div className="flex items-center gap-1 text-sm text-text-light dark:text-white/60 mb-3">
+                <div className="flex items-center gap-1 text-sm text-white/70 mb-3">
                   <MapPin className="h-3 w-3" />
                   {pkg.destination}
                 </div>
 
-                <p className="text-sm text-text-light dark:text-white/60 line-clamp-2 mb-4">
+                <p className="text-sm text-white/60 line-clamp-2 mb-4">
                   {pkg.description}
                 </p>
 
                 <div className="flex items-center justify-between pt-4 border-t border-border dark:border-white/10">
                   <div>
-                    <span className="text-xs text-text-light dark:text-white/40">
+                    <span className="text-xs text-white/50">
                       From
                     </span>
                     <div className="flex items-center gap-2">

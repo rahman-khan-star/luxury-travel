@@ -64,7 +64,7 @@ export function WhyChooseUs() {
             Why Us
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-text dark:text-white"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Why Choose Wadi Al Dhaid Tours
@@ -88,10 +88,10 @@ export function WhyChooseUs() {
               <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-50 transition-colors group-hover:bg-secondary group-hover:text-white dark:bg-gold-900/20">
                 <reason.icon className="h-6 w-6 text-secondary group-hover:text-white" />
               </div>
-              <h3 className="text-lg font-bold text-text dark:text-white mb-2">
+              <h3 className="text-lg font-bold text-white mb-2">
                 {reason.title}
               </h3>
-              <p className="text-sm text-text-light dark:text-white/60 leading-relaxed">
+              <p className="text-sm text-white/60 leading-relaxed">
                 {reason.description}
               </p>
             </motion.div>

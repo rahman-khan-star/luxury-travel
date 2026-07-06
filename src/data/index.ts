@@ -147,7 +147,7 @@ export const tourPackages: TourPackage[] = [
     destination: "Makkah & Madinah",
     description:
       "A spiritually enriching 10-day Umrah journey with premium accommodations steps from the Haram, guided rituals, and complete peace of mind.",
-    image: "https://images.unsplash.com/photo-1591604129939-f1efa4d9c70c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1564769625905-50e93615e769?w=800&q=80",
     duration: "10 Days / 9 Nights",
     price: 3499,
     rating: 4.9,
@@ -257,7 +257,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "1",
     name: "Sarah Al Maktoum",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
     location: "Dubai, UAE",
     rating: 5,
     text: "An absolutely extraordinary experience. The attention to detail was incredible — from the private yacht dinner to the desert camp. This is luxury travel done right.",

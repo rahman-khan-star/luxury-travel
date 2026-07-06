@@ -29,7 +29,7 @@ export function Testimonials() {
             Testimonials
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-text dark:text-white"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             What Our Travelers Say
@@ -50,7 +50,7 @@ export function Testimonials() {
               </div>
               <div className="p-8 md:p-10 flex flex-col justify-center">
                 <Quote className="h-10 w-10 text-secondary/30 mb-4" />
-                <p className="text-text dark:text-white leading-relaxed mb-6 text-lg">
+                <p className="text-white leading-relaxed mb-6 text-lg">
                   &ldquo;{testimonials[current].text}&rdquo;
                 </p>
                 <div className="flex items-center gap-1 mb-3">
@@ -62,10 +62,10 @@ export function Testimonials() {
                   ))}
                 </div>
                 <div>
-                  <h4 className="font-bold text-text dark:text-white">
+                  <h4 className="font-bold text-white">
                     {testimonials[current].name}
                   </h4>
-                  <p className="text-sm text-text-light dark:text-white/60">
+                  <p className="text-sm text-white/60">
                     {testimonials[current].location}
                   </p>
                   <p className="text-xs text-secondary mt-1">
@@ -81,7 +81,7 @@ export function Testimonials() {
               onClick={prev}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:bg-gold-50 transition-colors dark:border-white/20 dark:hover:bg-white/10"
             >
-              <ChevronLeft className="h-5 w-5 text-text dark:text-white" />
+              <ChevronLeft className="h-5 w-5 text-white" />
             </button>
             <div className="flex items-center gap-2">
               {testimonials.map((_, i) => (
@@ -100,7 +100,7 @@ export function Testimonials() {
               onClick={next}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border hover:bg-gold-50 transition-colors dark:border-white/20 dark:hover:bg-white/10"
             >
-              <ChevronRight className="h-5 w-5 text-text dark:text-white" />
+              <ChevronRight className="h-5 w-5 text-white" />
             </button>
           </div>
         </div>
