@@ -47,6 +47,8 @@
   .dark {
     --background: #0B1220;
     --foreground: #F8FAFC;
+    --color-text: #FFFFFF;
+    --color-text-light: rgba(255, 255, 255, 0.6);
   }
 
   html {
@@ -55,7 +57,7 @@
 
   body {
     background: linear-gradient(135deg, #0B1220 0%, #111930 50%, #1A2240 100%);
-    color: var(--foreground);
+    color: #FFFFFF;
     font-family: var(--font-body);
     min-height: 100vh;
   }
@@ -154,6 +156,18 @@
 
   .animate-glow {
     animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .text-dark-primary {
+    color: #FFFFFF;
+  }
+
+  .text-dark-secondary {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .text-dark-muted {
+    color: rgba(255, 255, 255, 0.4);
   }
 }
 

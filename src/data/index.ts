@@ -174,7 +174,7 @@ export const tourPackages: TourPackage[] = [
     destination: "Dubai",
     description:
       "Ring in the New Year with the world's most spectacular fireworks display and exclusive Dubai celebrations.",
-    image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800&q=80",
     duration: "4 Days / 3 Nights",
     price: 3999,
     originalPrice: 4999,
@@ -320,7 +320,7 @@ export const blogPosts: BlogPost[] = [
     title: "A Complete Guide to Planning Your Umrah Journey",
     excerpt:
       "Everything you need to know about preparing for a meaningful Umrah pilgrimage, from visa to spiritual preparation.",
-    image: "https://images.unsplash.com/photo-1591604129939-f1efa4d9c70c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1564769625905-50e93615e769?w=800&q=80",
     author: "Religious Advisor",
     date: "2026-01-05",
     category: "Umrah",
@@ -331,7 +331,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why Dubai is the Ultimate Luxury Travel Destination",
     excerpt:
       "With world-class hotels, Michelin-star dining, and unparalleled experiences, Dubai redefines luxury travel.",
-    image: "https://images.unsplash.com/photo-1546417637-b4a3629ef0ea?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&q=80",
     author: "Travel Experts",
     date: "2025-12-28",
     category: "Dubai",
@@ -460,13 +460,13 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: "3",
-    image: "https://images.unsplash.com/photo-1591604129939-f1efa4d9c70c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1564769625905-50e93615e769?w=800&q=80",
     title: "Masjid al-Haram",
     destination: "Makkah",
   },
   {
     id: "4",
-    image: "https://images.unsplash.com/photo-1546417637-b4a3629ef0ea?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=800&q=80",
     title: "New Year Fireworks",
     destination: "Dubai",
   },

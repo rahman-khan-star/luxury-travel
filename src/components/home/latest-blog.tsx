@@ -26,7 +26,7 @@ export function LatestBlog() {
           >
             Latest Travel Stories
           </h2>
-          <p className="mt-3 max-w-2xl text-text-light dark:text-white/60">
+          <p className="mt-3 max-w-2xl text-white/60">
             Tips, guides, and inspiration for your next luxury adventure.
           </p>
         </motion.div>
@@ -58,7 +58,7 @@ export function LatestBlog() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <div className="flex items-center gap-2 text-xs text-text-light dark:text-white/40 mb-2">
+                  <div className="flex items-center gap-2 text-xs text-white/60 mb-2">
                     <Calendar className="h-3 w-3" />
                     {new Date(post.date).toLocaleDateString("en-US", {
                       month: "short",
@@ -66,10 +66,10 @@ export function LatestBlog() {
                       year: "numeric",
                     })}
                   </div>
-                  <h3 className="text-base font-bold text-text dark:text-white line-clamp-2 mb-2 group-hover:text-secondary transition-colors">
+                  <h3 className="text-base font-bold text-white line-clamp-2 mb-2 group-hover:text-secondary transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-text-light dark:text-white/60 line-clamp-2">
+                  <p className="text-sm text-white/60 line-clamp-2">
                     {post.excerpt}
                   </p>
                 </div>

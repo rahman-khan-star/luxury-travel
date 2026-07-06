@@ -24,7 +24,7 @@ export function Gallery() {
           >
             Travel Moments
           </h2>
-          <p className="mt-3 mx-auto max-w-2xl text-text-light dark:text-white/60">
+          <p className="mt-3 mx-auto max-w-2xl text-white/60">
             Captured memories from our travelers around the world.
           </p>
         </motion.div>

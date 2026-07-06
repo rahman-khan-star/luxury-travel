@@ -26,7 +26,7 @@ export function FeaturedDestinations() {
           >
             Featured Destinations
           </h2>
-          <p className="mt-3 max-w-2xl text-text-light dark:text-white/60">
+          <p className="mt-3 max-w-2xl text-white/60">
             Handpicked destinations offering extraordinary experiences and
             unforgettable memories.
           </p>
@@ -71,12 +71,12 @@ export function FeaturedDestinations() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <p className="text-sm text-text-light dark:text-white/60 line-clamp-2 mb-4">
+                  <p className="text-sm text-white/60 line-clamp-2 mb-4">
                     {dest.description}
                   </p>
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-xs text-text-light dark:text-white/40">
+                      <span className="text-xs text-white/40">
                         From
                       </span>
                       <p className="text-xl font-bold text-secondary" style={{ fontFamily: "var(--font-mono)" }}>
