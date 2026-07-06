@@ -174,7 +174,7 @@ export const tourPackages: TourPackage[] = [
     destination: "Dubai",
     description:
       "Ring in the New Year with the world's most spectacular fireworks display and exclusive Dubai celebrations.",
-    image: "https://images.unsplash.com/photo-1546417637-b4a3629ef0ea?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80",
     duration: "4 Days / 3 Nights",
     price: 3999,
     originalPrice: 4999,

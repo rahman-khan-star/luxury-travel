@@ -42,28 +42,28 @@ export function VisaServices() {
               className="premium-card group"
             >
               <div className="text-4xl mb-4">{visa.flag}</div>
-              <h3 className="text-lg font-bold text-text dark:text-white mb-1">
+              <h3 className="text-lg font-bold text-white mb-1">
                 {visa.type}
               </h3>
-              <p className="text-sm text-text-light dark:text-white/60 mb-4">
+              <p className="text-sm text-white/60 mb-4">
                 {visa.country}
               </p>
 
               <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-2 text-sm text-text-light dark:text-white/60">
+                <div className="flex items-center gap-2 text-sm text-white/60">
                   <Clock className="h-4 w-4 text-secondary" />
                   <span>{visa.processingTime}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-text-light dark:text-white/60">
+                <div className="flex items-center gap-2 text-sm text-white/60">
                   <Globe className="h-4 w-4 text-secondary" />
                   <span>{visa.duration} stay</span>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-border dark:border-white/10">
+              <div className="pt-4 border-t border-white/10">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-xs text-text-light dark:text-white/40">
+                    <span className="text-xs text-white/50">
                       Starting from
                     </span>
                     <p
