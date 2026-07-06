@@ -162,18 +162,6 @@ export function Navbar() {
               </button>
             )}
 
-            <Link
-              href="/admin"
-              className={cn(
-                "hidden sm:inline-flex items-center gap-1 rounded-lg px-3 py-2 text-xs font-medium transition-colors",
-                isScrolled
-                  ? "text-text-light hover:bg-gold-50 hover:text-secondary dark:text-white/60 dark:hover:bg-white/10"
-                  : "text-white/70 hover:text-white hover:bg-white/10"
-              )}
-            >
-              Admin
-            </Link>
-
             <Link href="/contact" className="hidden sm:inline-flex btn-primary">
               Book Now
             </Link>
