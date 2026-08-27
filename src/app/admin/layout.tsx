@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  LayoutDashboard,
+  LayoutGrid,
   MapPin,
   Package,
   MessageSquare,
@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 
 const sidebarLinks = [
-  { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
+  { label: "Dashboard", href: "/admin", icon: LayoutGrid },
   { label: "Destinations", href: "/admin/destinations", icon: MapPin },
   { label: "Tour Packages", href: "/admin/packages", icon: Package },
   { label: "Testimonials", href: "/admin/testimonials", icon: Star },
