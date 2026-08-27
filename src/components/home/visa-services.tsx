@@ -7,75 +7,72 @@ import { visaServices } from "@/data";
 
 export function VisaServices() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-slate-50">
       <div className="container-premium mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
+          transition={{ duration: 0.6 }}
+          className="mb-10"
         >
-          <span className="text-sm font-semibold text-secondary uppercase tracking-wider">
+          <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">
             Visa
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-primary dark:text-white"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Visa Services
           </h2>
-          <p className="mt-3 max-w-2xl text-text-light dark:text-white/60">
+          <p className="mt-3 max-w-2xl text-slate-600">
             Hassle-free visa processing with a 99.5% approval rate. We handle
             everything from documentation to submission.
           </p>
         </motion.div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {visaServices.map((visa, i) => (
             <motion.div
               key={visa.id}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm p-5 group hover:shadow-lg transition-all duration-300"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="rounded-2xl bg-white border border-slate-100 shadow-sm p-6 group hover:shadow-xl transition-all duration-300"
             >
-              <div className="text-3xl mb-3">{visa.flag}</div>
-              <h3 className="text-base font-bold text-primary dark:text-white mb-1">
+              <div className="text-4xl mb-4">{visa.flag}</div>
+              <h3 className="text-lg font-bold text-slate-800 mb-1">
                 {visa.type}
               </h3>
-              <p className="text-xs text-text-light dark:text-white/60 mb-3">
+              <p className="text-sm text-slate-500 mb-4">
                 {visa.country}
               </p>
 
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center gap-2 text-xs text-text-light dark:text-white/60">
-                  <Clock className="h-3.5 w-3.5 text-secondary" />
+              <div className="space-y-3 mb-5">
+                <div className="flex items-center gap-2.5 text-sm text-slate-600">
+                  <Clock className="h-4 w-4 text-sky-500" />
                   <span>{visa.processingTime}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-text-light dark:text-white/60">
-                  <Globe className="h-3.5 w-3.5 text-secondary" />
+                <div className="flex items-center gap-2.5 text-sm text-slate-600">
+                  <Globe className="h-4 w-4 text-sky-500" />
                   <span>{visa.duration} stay</span>
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-border dark:border-white/10">
+              <div className="pt-4 border-t border-slate-100">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-[10px] text-text-light dark:text-white/40">
+                    <span className="text-xs text-slate-400">
                       Starting from
                     </span>
-                    <p
-                      className="text-lg font-bold text-secondary"
-                      style={{ fontFamily: "var(--font-mono)" }}
-                    >
+                    <p className="text-xl font-bold text-sky-500">
                       ${visa.price}
                     </p>
                   </div>
                   <Link
                     href="/visa-services"
-                    className="text-sm font-medium text-secondary hover:underline"
+                    className="text-sm font-semibold text-sky-500 hover:underline"
                   >
                     Apply Now
                   </Link>
@@ -86,23 +83,23 @@ export function VisaServices() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-8 rounded-2xl gradient-navy p-6 sm:p-8"
+          className="mt-10 rounded-2xl bg-gradient-to-r from-sky-500 to-sky-600 p-8"
         >
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
             <div>
-              <h3 className="text-xl font-bold text-white mb-1">
+              <h3 className="text-2xl font-bold text-white mb-2">
                 Need Help with Your Visa?
               </h3>
-              <p className="text-sm text-white/60">
+              <p className="text-sky-100">
                 Our visa experts are here to guide you through every step.
               </p>
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-xl gradient-gold px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-secondary/25 shrink-0"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-3 text-sm font-semibold text-sky-600 transition-all hover:shadow-lg shrink-0"
             >
               Get Free Consultation
               <ArrowRight className="h-4 w-4" />

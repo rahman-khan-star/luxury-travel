@@ -9,7 +9,7 @@ import {
   MessageCircle,
   Hash,
   Play,
-  ArrowRight,
+  Plane,
 } from "lucide-react";
 
 const footerLinks = {
@@ -41,69 +41,69 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-slate-900 text-white">
       <div className="container-premium mx-auto px-4 pt-16 pb-8">
         <div className="grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl gradient-gold">
-                <span className="text-lg font-bold text-white">LT</span>
+            <Link href="/" className="flex items-center gap-3 mb-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500">
+                <Plane className="h-5 w-5 text-white" />
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-white leading-tight">
                   WADI AL DHAID TOURS
                 </span>
-                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-secondary">
+                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-sky-400">
                   Premium Experiences
                 </span>
               </div>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-sm">
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-sm">
               Creating extraordinary travel experiences since 2014. We
               specialize in luxury tours, visa services, and Umrah packages
               across Dubai, Pakistan, and worldwide destinations.
             </p>
             <div className="flex items-center gap-3 mb-6">
-                <a
-                  href="#"
-                  aria-label="Facebook"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white/70 transition-all hover:bg-secondary hover:text-white"
-                >
-                  <Globe className="h-4 w-4" />
-                </a>
-                <a
-                  href="#"
-                  aria-label="Instagram"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white/70 transition-all hover:bg-secondary hover:text-white"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                </a>
-                <a
-                  href="#"
-                  aria-label="Twitter"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white/70 transition-all hover:bg-secondary hover:text-white"
-                >
-                  <Hash className="h-4 w-4" />
-                </a>
-                <a
-                  href="#"
-                  aria-label="YouTube"
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white/70 transition-all hover:bg-secondary hover:text-white"
-                >
-                  <Play className="h-4 w-4" />
-                </a>
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-400 transition-all hover:bg-sky-500 hover:text-white"
+              >
+                <Globe className="h-4 w-4" />
+              </a>
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-400 transition-all hover:bg-orange-500 hover:text-white"
+              >
+                <MessageCircle className="h-4 w-4" />
+              </a>
+              <a
+                href="#"
+                aria-label="Twitter"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-400 transition-all hover:bg-sky-500 hover:text-white"
+              >
+                <Hash className="h-4 w-4" />
+              </a>
+              <a
+                href="#"
+                aria-label="YouTube"
+                className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-slate-400 transition-all hover:bg-red-500 hover:text-white"
+              >
+                <Play className="h-4 w-4" />
+              </a>
             </div>
-            <div className="space-y-2 text-sm text-white/60">
-              <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-secondary" />
+            <div className="space-y-3 text-sm text-slate-400">
+              <div className="flex items-center gap-3">
+                <Phone className="h-4 w-4 text-sky-400" />
                 +92 342 900 5290
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-secondary" />
+              <div className="flex items-center gap-3">
+                <Mail className="h-4 w-4 text-sky-400" />
                 info@luxurytravel.com
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-secondary" />
+              <div className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 text-sky-400" />
                 Dubai, United Arab Emirates
               </div>
             </div>
@@ -114,12 +114,12 @@ export function Footer() {
               <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
                 {category}
               </h3>
-              <ul className="space-y-2.5">
+              <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/60 hover:text-secondary transition-colors"
+                      className="text-sm text-slate-400 hover:text-sky-400 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -130,22 +130,22 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10">
+        <div className="mt-12 pt-8 border-t border-slate-800">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-white/40">
+            <p className="text-sm text-slate-500">
               &copy; {new Date().getFullYear()} Wadi Al Dhaid Tours LLC. All rights
               reserved.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <Link
                 href="/privacy"
-                className="text-xs text-white/40 hover:text-white/60"
+                className="text-xs text-slate-500 hover:text-slate-300"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-xs text-white/40 hover:text-white/60"
+                className="text-xs text-slate-500 hover:text-slate-300"
               >
                 Terms of Service
               </Link>

@@ -2,106 +2,255 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
+  Plane,
+  Building2,
+  MapPin,
   Calendar,
   Users,
-  MapPin,
   ArrowRight,
 } from "lucide-react";
 
+const tabs = [
+  { id: "flights", label: "Flights", icon: Plane },
+  { id: "hotels", label: "Hotels", icon: Building2 },
+  { id: "trips", label: "Trips", icon: MapPin },
+];
+
 export function SearchTrips() {
+  const [activeTab, setActiveTab] = useState("flights");
   const [fromWhere, setFromWhere] = useState("");
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState("");
 
   return (
-    <section className="relative -mt-20 z-20 px-4 mb-8">
+    <section className="relative -mt-24 z-20 px-4 mb-8">
       <div className="container-premium mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="rounded-2xl bg-white/95 dark:bg-white/10 backdrop-blur-md p-5 border border-black/5 dark:border-white/20 shadow-lg"
+          transition={{ duration: 0.6 }}
+          className="rounded-3xl bg-white p-6 shadow-xl border border-slate-100"
         >
-          <div className="grid gap-3 md:grid-cols-5">
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-medium text-text-light dark:text-white/50 uppercase tracking-wider">
-                From Where
-              </label>
-              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2.5 dark:bg-navy-900 dark:border-white/10">
-                <MapPin className="h-4 w-4 text-secondary shrink-0" />
-                <input
-                  type="text"
-                  placeholder="Departure city"
-                  value={fromWhere}
-                  onChange={(e) => setFromWhere(e.target.value)}
-                  className="flex-1 bg-transparent text-sm text-text placeholder:text-text-light outline-none dark:text-white dark:placeholder:text-white/40"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-medium text-text-light dark:text-white/50 uppercase tracking-wider">
-                Destination
-              </label>
-              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2.5 dark:bg-navy-900 dark:border-white/10">
-                <MapPin className="h-4 w-4 text-secondary shrink-0" />
-                <input
-                  type="text"
-                  placeholder="Where to?"
-                  value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
-                  className="flex-1 bg-transparent text-sm text-text placeholder:text-text-light outline-none dark:text-white dark:placeholder:text-white/40"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-medium text-text-light dark:text-white/50 uppercase tracking-wider">
-                Travel Date
-              </label>
-              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2.5 dark:bg-navy-900 dark:border-white/10">
-                <Calendar className="h-4 w-4 text-secondary shrink-0" />
-                <input
-                  type="text"
-                  placeholder="Select date"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  className="flex-1 bg-transparent text-sm text-text placeholder:text-text-light outline-none dark:text-white dark:placeholder:text-white/40"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-1.5">
-              <label className="text-[10px] font-medium text-text-light dark:text-white/50 uppercase tracking-wider">
-                Guests
-              </label>
-              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2.5 dark:bg-navy-900 dark:border-white/10">
-                <Users className="h-4 w-4 text-secondary shrink-0" />
-                <input
-                  type="text"
-                  placeholder="How many?"
-                  value={guests}
-                  onChange={(e) => setGuests(e.target.value)}
-                  className="flex-1 bg-transparent text-sm text-text placeholder:text-text-light outline-none dark:text-white dark:placeholder:text-white/40"
-                />
-              </div>
-            </div>
-
-            <div className="flex items-end">
-              <Link
-                href="/tour-packages"
-                className="flex w-full items-center justify-center gap-2 rounded-xl gradient-gold px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-secondary/25"
-              >
-                <Search className="h-4 w-4" />
-                Search Trips
-              </Link>
-            </div>
+          <div className="flex gap-2 mb-6">
+            {tabs.map((tab) => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                    activeTab === tab.id
+                      ? "bg-sky-500 text-white shadow-lg shadow-sky-500/25"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  }`}
+                >
+                  <Icon className="h-4 w-4" />
+                  {tab.label}
+                </button>
+              );
+            })}
           </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+            >
+              {activeTab === "flights" && (
+                <div className="grid gap-4 md:grid-cols-4">
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      From
+                    </label>
+                    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <MapPin className="h-5 w-5 text-sky-500 shrink-0" />
+                      <input
+                        type="text"
+                        placeholder="Departure city"
+                        value={fromWhere}
+                        onChange={(e) => setFromWhere(e.target.value)}
+                        className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      To
+                    </label>
+                    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <MapPin className="h-5 w-5 text-orange-500 shrink-0" />
+                      <input
+                        type="text"
+                        placeholder="Destination"
+                        value={destination}
+                        onChange={(e) => setDestination(e.target.value)}
+                        className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      Date
+                    </label>
+                    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <Calendar className="h-5 w-5 text-emerald-500 shrink-0" />
+                      <input
+                        type="text"
+                        placeholder="Select date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex items-end">
+                    <Link
+                      href="/tour-packages"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/25"
+                    >
+                      <Search className="h-4 w-4" />
+                      Search Flights
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === "hotels" && (
+                <div className="grid gap-4 md:grid-cols-4">
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      Destination
+                    </label>
+                    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <MapPin className="h-5 w-5 text-sky-500 shrink-0" />
+                      <input
+                        type="text"
+                        placeholder="City or hotel"
+                        value={destination}
+                        onChange={(e) => setDestination(e.target.value)}
+                        className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      Check-in
+                    </label>
+                    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <Calendar className="h-5 w-5 text-emerald-500 shrink-0" />
+                      <input
+                        type="text"
+                        placeholder="Select date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      Guests
+                    </label>
+                    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <Users className="h-5 w-5 text-orange-500 shrink-0" />
+                      <input
+                        type="text"
+                        placeholder="How many?"
+                        value={guests}
+                        onChange={(e) => setGuests(e.target.value)}
+                        className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex items-end">
+                    <Link
+                      href="/hotels"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/25"
+                    >
+                      <Search className="h-4 w-4" />
+                      Search Hotels
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === "trips" && (
+                <div className="grid gap-4 md:grid-cols-4">
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      From
+                    </label>
+                    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <MapPin className="h-5 w-5 text-sky-500 shrink-0" />
+                      <input
+                        type="text"
+                        placeholder="Departure city"
+                        value={fromWhere}
+                        onChange={(e) => setFromWhere(e.target.value)}
+                        className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      Destination
+                    </label>
+                    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <MapPin className="h-5 w-5 text-orange-500 shrink-0" />
+                      <input
+                        type="text"
+                        placeholder="Where to?"
+                        value={destination}
+                        onChange={(e) => setDestination(e.target.value)}
+                        className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+                      Duration
+                    </label>
+                    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                      <Calendar className="h-5 w-5 text-emerald-500 shrink-0" />
+                      <input
+                        type="text"
+                        placeholder="Select dates"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        className="flex-1 bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex items-end">
+                    <Link
+                      href="/tour-packages"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/25"
+                    >
+                      <Search className="h-4 w-4" />
+                      Search Trips
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>

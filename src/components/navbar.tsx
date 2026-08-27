@@ -10,6 +10,7 @@ import {
   ChevronDown,
   Sun,
   Moon,
+  Plane,
 } from "lucide-react";
 import { navLinks } from "@/data";
 import { cn } from "@/lib/utils";
@@ -36,42 +37,35 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 w-full transition-all duration-500",
+          "sticky top-0 z-50 w-full transition-all duration-300",
           isScrolled
-            ? "bg-white/90 dark:bg-navy-900/90 backdrop-blur-xl border-b border-black/5 dark:border-white/10 shadow-sm"
-            : "bg-gradient-to-b from-black/40 via-black/20 to-transparent"
+            ? "bg-white/95 backdrop-blur-xl border-b border-slate-100 shadow-sm"
+            : "bg-transparent"
         )}
       >
-        <div className="container-premium mx-auto flex items-center justify-between px-4 py-3">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-gold shrink-0">
-              <span className="text-sm font-bold text-white">LT</span>
+        <div className="container-premium mx-auto flex items-center justify-between px-4 py-4">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500 shrink-0">
+              <Plane className="h-5 w-5 text-white" />
             </div>
             <div className="flex flex-col">
               <span
                 className={cn(
-                  "text-base font-bold leading-tight tracking-tight",
+                  "text-lg font-bold leading-tight tracking-tight",
                   isScrolled
-                    ? "text-primary dark:text-white"
-                    : "text-white"
+                    ? "text-slate-800"
+                    : "text-slate-800"
                 )}
               >
                 WADI AL DHAID TOURS
               </span>
-              <span
-                className={cn(
-                  "text-[9px] font-medium uppercase tracking-[0.2em]",
-                  isScrolled
-                    ? "text-secondary"
-                    : "text-secondary"
-                )}
-              >
+              <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-sky-500">
                 Premium Experiences
               </span>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-0.5">
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <div
                 key={link.label}
@@ -84,10 +78,10 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "flex items-center gap-1 px-2.5 py-1.5 text-sm font-medium rounded-lg transition-colors",
+                    "flex items-center gap-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors",
                     isScrolled
-                      ? "text-text hover:text-secondary hover:bg-gold-50 dark:text-white dark:hover:bg-white/10"
-                      : "text-white/90 hover:text-white hover:bg-white/10"
+                      ? "text-slate-600 hover:text-sky-500 hover:bg-sky-50"
+                      : "text-slate-600 hover:text-sky-500 hover:bg-sky-50"
                   )}
                 >
                   {link.label}
@@ -103,13 +97,13 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.15 }}
-                      className="absolute left-0 top-full z-50 mt-1 w-56 rounded-xl bg-white dark:bg-navy-800 border border-border dark:border-white/15 shadow-xl p-2"
+                      className="absolute left-0 top-full z-50 mt-1 w-56 rounded-xl bg-white border border-slate-100 shadow-xl p-2"
                     >
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block rounded-lg px-4 py-2.5 text-sm text-text dark:text-white transition-colors hover:bg-gold-50 dark:hover:bg-white/10 hover:text-secondary"
+                          className="block rounded-lg px-4 py-2.5 text-sm text-slate-600 transition-colors hover:bg-sky-50 hover:text-sky-500"
                           onClick={() => setOpenDropdown(null)}
                         >
                           {child.label}
@@ -122,44 +116,37 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className={cn(
-                  "flex h-8 w-8 items-center justify-center rounded-lg transition-colors",
-                  isScrolled
-                    ? "text-text hover:bg-gold-50 dark:text-white dark:hover:bg-white/10"
-                    : "text-white hover:bg-white/10"
-                )}
+                className="flex h-10 w-10 items-center justify-center rounded-xl text-slate-500 hover:bg-slate-100 transition-colors"
               >
                 {theme === "dark" ? (
-                  <Sun className="h-4 w-4" />
+                  <Sun className="h-5 w-5" />
                 ) : (
-                  <Moon className="h-4 w-4" />
+                  <Moon className="h-5 w-5" />
                 )}
               </button>
             )}
 
             <Link
               href="/admin"
-              className="hidden sm:inline-flex items-center rounded-lg px-2.5 py-1.5 text-xs font-medium text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+              className="hidden sm:inline-flex items-center rounded-xl px-4 py-2 text-sm font-medium text-slate-500 hover:text-sky-500 hover:bg-sky-50 transition-colors"
             >
               Admin
             </Link>
 
-            <Link href="/contact" className="hidden sm:inline-flex btn-primary text-xs px-4 py-2">
+            <Link
+              href="/contact"
+              className="hidden sm:inline-flex items-center gap-2 rounded-xl bg-sky-500 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/25"
+            >
               Book Now
             </Link>
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={cn(
-                "lg:hidden flex h-8 w-8 items-center justify-center rounded-lg",
-                isScrolled
-                  ? "text-text dark:text-white"
-                  : "text-white"
-              )}
+              className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl text-slate-600 hover:bg-slate-100"
             >
               {mobileOpen ? (
                 <X className="h-5 w-5" />
@@ -176,14 +163,14 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white dark:bg-navy-900 border-t border-border dark:border-white/10 overflow-hidden"
+              className="lg:hidden bg-white border-t border-slate-100 overflow-hidden"
             >
               <div className="container-premium mx-auto px-4 py-4">
                 {navLinks.map((link) => (
                   <div key={link.label}>
                     <Link
                       href={link.href}
-                      className="block py-3 text-sm font-medium text-text dark:text-white border-b border-border/50 dark:border-white/10"
+                      className="block py-3 text-sm font-medium text-slate-700 border-b border-slate-100"
                       onClick={() => setMobileOpen(false)}
                     >
                       {link.label}
@@ -192,7 +179,7 @@ export function Navbar() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block py-2 pl-4 text-sm text-text-light dark:text-white/70"
+                        className="block py-2 pl-4 text-sm text-slate-500"
                         onClick={() => setMobileOpen(false)}
                       >
                         {child.label}

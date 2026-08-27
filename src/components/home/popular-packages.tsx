@@ -12,99 +12,95 @@ export function PopularPackages() {
     <section className="section-padding">
       <div className="container-premium mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
+          transition={{ duration: 0.6 }}
+          className="mb-10"
         >
-          <span className="text-sm font-semibold text-secondary uppercase tracking-wider">
+          <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">
             Packages
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-primary dark:text-white"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Popular Tour Packages
           </h2>
-          <p className="mt-3 max-w-2xl text-text-light dark:text-white/60">
+          <p className="mt-3 max-w-2xl text-slate-600">
             Curated travel packages designed to deliver exceptional experiences
             at the best value.
           </p>
         </motion.div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {tourPackages.slice(0, 6).map((pkg, i) => (
             <motion.div
               key={pkg.id}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="group overflow-hidden rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-52 overflow-hidden">
                 <Image
                   src={pkg.image}
                   alt={pkg.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 {pkg.originalPrice && (
-                  <div className="absolute top-3 left-3 rounded-full bg-red-500 px-2.5 py-0.5 text-xs font-semibold text-white">
+                  <div className="absolute top-4 left-4 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white">
                     Save ${pkg.originalPrice - pkg.price}
                   </div>
                 )}
-                <div className="absolute bottom-3 left-3 flex items-center gap-2">
-                  <span className="rounded-full bg-white/90 dark:bg-white/20 backdrop-blur-sm px-2.5 py-1 text-xs font-medium text-primary dark:text-white">
+                <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                  <span className="rounded-full bg-white/90 backdrop-blur-sm px-3 py-1.5 text-xs font-medium text-slate-700 flex items-center gap-1.5">
+                    <Clock className="h-3.5 w-3.5 text-sky-500" />
                     {pkg.duration}
                   </span>
                 </div>
               </div>
 
-              <div className="p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="rounded-full bg-gold-50 px-2 py-0.5 text-xs font-medium text-secondary dark:bg-gold-900/30">
+              <div className="p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-600">
                     {pkg.category.charAt(0).toUpperCase() +
                       pkg.category.slice(1)}
                   </span>
                   <div className="flex items-center gap-1">
-                    <Star className="h-3 w-3 fill-secondary text-secondary" />
-                    <span className="text-xs font-medium text-primary dark:text-white">
+                    <Star className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
+                    <span className="text-xs font-semibold text-slate-800">
                       {pkg.rating}
                     </span>
-                    <span className="text-xs text-text-light dark:text-white/40">
+                    <span className="text-xs text-slate-400">
                       ({pkg.reviewCount})
                     </span>
                   </div>
                 </div>
 
-                <h3 className="text-base font-bold text-primary dark:text-white mb-1">
+                <h3 className="text-lg font-bold text-slate-800 mb-2">
                   {pkg.title}
                 </h3>
-                <div className="flex items-center gap-1 text-xs text-text-light dark:text-white/60 mb-2">
-                  <MapPin className="h-3 w-3" />
+                <div className="flex items-center gap-1.5 text-sm text-slate-500 mb-3">
+                  <MapPin className="h-4 w-4 text-sky-400" />
                   {pkg.destination}
                 </div>
 
-                <p className="text-xs text-text-light dark:text-white/50 line-clamp-2 mb-3">
+                <p className="text-sm text-slate-500 line-clamp-2 mb-4">
                   {pkg.description}
                 </p>
 
-                <div className="flex items-center justify-between pt-3 border-t border-border dark:border-white/10">
+                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
                   <div>
-                    <span className="text-[10px] text-text-light dark:text-white/40">
-                      From
-                    </span>
+                    <span className="text-xs text-slate-400">From</span>
                     <div className="flex items-center gap-2">
-                      <span
-                        className="text-lg font-bold text-secondary"
-                        style={{ fontFamily: "var(--font-mono)" }}
-                      >
+                      <span className="text-xl font-bold text-sky-500">
                         {formatPrice(pkg.price)}
                       </span>
                       {pkg.originalPrice && (
-                        <span className="text-xs text-text-light line-through dark:text-white/30">
+                        <span className="text-sm text-slate-400 line-through">
                           {formatPrice(pkg.originalPrice)}
                         </span>
                       )}
@@ -112,7 +108,7 @@ export function PopularPackages() {
                   </div>
                   <Link
                     href={`/tour-packages/${pkg.id}`}
-                    className="flex items-center gap-1 text-sm font-medium text-secondary hover:gap-2 transition-all"
+                    className="flex items-center gap-1.5 text-sm font-semibold text-sky-500 hover:gap-2.5 transition-all"
                   >
                     Details
                     <ArrowRight className="h-4 w-4" />
@@ -124,14 +120,14 @@ export function PopularPackages() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-8 text-center"
+          className="mt-10 text-center"
         >
           <Link
             href="/tour-packages"
-            className="inline-flex items-center gap-2 btn-primary"
+            className="inline-flex items-center gap-2 rounded-xl bg-sky-500 px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/25"
           >
             View All Packages
             <ArrowRight className="h-4 w-4" />

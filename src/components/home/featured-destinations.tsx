@@ -8,82 +8,76 @@ import { destinations } from "@/data";
 
 export function FeaturedDestinations() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-slate-50">
       <div className="container-premium mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
+          transition={{ duration: 0.6 }}
+          className="mb-10"
         >
-          <span className="text-sm font-semibold text-secondary uppercase tracking-wider">
-            Explore
+          <span className="text-sm font-semibold text-sky-500 uppercase tracking-wider">
+            Destinations
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-primary dark:text-white"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Featured Destinations
           </h2>
-          <p className="mt-3 max-w-2xl text-text-light dark:text-white/60">
+          <p className="mt-3 max-w-2xl text-slate-600">
             Handpicked destinations offering extraordinary experiences and
             unforgettable memories.
           </p>
         </motion.div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {destinations.slice(0, 6).map((dest, i) => (
             <motion.div
               key={dest.id}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <Link
                 href={`/destinations/${dest.id}`}
-                className="group block overflow-hidden rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm"
+                className="group block overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300"
               >
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <Image
                     src={dest.image}
                     alt={dest.name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="text-base font-bold text-white">
-                          {dest.name}
-                        </h3>
-                        <p className="text-xs text-white/80">{dest.country}</p>
-                      </div>
-                      <div className="flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-sm px-2 py-0.5">
-                        <Star className="h-3 w-3 fill-secondary text-secondary" />
-                        <span className="text-xs font-medium text-white">
-                          {dest.rating}
-                        </span>
-                      </div>
-                    </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute top-4 right-4 flex items-center gap-1 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1.5">
+                    <Star className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
+                    <span className="text-xs font-semibold text-slate-800">
+                      {dest.rating}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-4 left-4">
+                    <h3 className="text-xl font-bold text-white mb-1">
+                      {dest.name}
+                    </h3>
+                    <p className="text-sm text-white/80">{dest.country}</p>
                   </div>
                 </div>
-                <div className="p-4">
-                  <p className="text-xs text-text-light dark:text-white/60 line-clamp-2 mb-3">
+                <div className="p-5">
+                  <p className="text-sm text-slate-600 line-clamp-2 mb-4">
                     {dest.description}
                   </p>
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] text-text-light dark:text-white/40">
-                        From
-                      </span>
-                      <p className="text-lg font-bold text-secondary" style={{ fontFamily: "var(--font-mono)" }}>
+                      <span className="text-xs text-slate-400">From</span>
+                      <p className="text-xl font-bold text-sky-500">
                         ${dest.priceFrom.toLocaleString()}
                       </p>
                     </div>
-                    <span className="flex items-center gap-1 text-sm font-medium text-secondary group-hover:gap-2 transition-all">
+                    <span className="flex items-center gap-1.5 text-sm font-semibold text-sky-500 group-hover:gap-2.5 transition-all">
                       Explore
                       <ArrowRight className="h-4 w-4" />
                     </span>
@@ -95,14 +89,14 @@ export function FeaturedDestinations() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-8 text-center"
+          className="mt-10 text-center"
         >
           <Link
             href="/destinations"
-            className="inline-flex items-center gap-2 btn-secondary"
+            className="inline-flex items-center gap-2 rounded-xl border-2 border-sky-500 bg-transparent px-8 py-3 text-sm font-semibold text-sky-500 transition-all duration-300 hover:bg-sky-500 hover:text-white"
           >
             View All Destinations
             <ArrowRight className="h-4 w-4" />
