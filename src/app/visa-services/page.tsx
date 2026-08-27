@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import {
   FileCheck,
@@ -9,30 +10,46 @@ import {
   CheckCircle,
   Phone,
   ArrowRight,
+  ChevronDown,
 } from "lucide-react";
 import { visaServices } from "@/data";
 import Link from "next/link";
 
 export default function VisaServicesPage() {
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToCards = () => {
+    if (cardsRef.current) {
+      cardsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 gradient-hero" />
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 gradient-hero dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
         <div className="relative z-10 container-premium mx-auto px-4 text-center">
           <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Visa <span className="text-gradient-gold">Services</span>
+            Visa <span className="text-sky-500">Services</span>
           </h1>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-6">
             Hassle-free visa processing with a 99.5% approval rate. We handle
             everything from documentation to submission.
           </p>
+          <button
+            onClick={scrollToCards}
+            className="inline-flex items-center gap-2 text-sm font-medium text-sky-500 hover:text-sky-600 transition-colors"
+          >
+            Scroll Down
+            <ChevronDown className="h-4 w-4 animate-bounce" />
+          </button>
         </div>
       </section>
 
-      <section className="section-padding">
+      <section ref={cardsRef} className="section-padding">
         <div className="container-premium mx-auto">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 mb-16">
             {[
@@ -47,22 +64,22 @@ export default function VisaServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="premium-card text-center"
+                className="rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-6 text-center shadow-sm hover:shadow-lg transition-shadow"
               >
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-50 dark:bg-gold-900/20">
-                  <item.icon className="h-6 w-6 text-secondary" />
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 dark:bg-sky-900/50">
+                  <item.icon className="h-6 w-6 text-sky-500" />
                 </div>
-                <h3 className="text-lg font-bold text-text dark:text-white mb-1">
+                <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-1">
                   {item.title}
                 </h3>
-                <p className="text-sm text-text-light dark:text-white/60">
+                <p className="text-sm text-slate-500 dark:text-slate-400">
                   {item.desc}
                 </p>
               </motion.div>
             ))}
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div ref={cardsRef} className="grid gap-6 sm:grid-cols-2">
             {visaServices.map((visa, i) => (
               <motion.div
                 key={visa.id}
@@ -70,53 +87,50 @@ export default function VisaServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="premium-card"
+                className="rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 p-6 shadow-sm hover:shadow-lg transition-shadow"
               >
                 <div className="flex items-start gap-4 mb-6">
                   <span className="text-5xl">{visa.flag}</span>
                   <div>
-                    <h3 className="text-xl font-bold text-text dark:text-white">
+                    <h3 className="text-xl font-bold text-slate-800 dark:text-white">
                       {visa.type}
                     </h3>
-                    <p className="text-sm text-text-light dark:text-white/60">
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
                       {visa.country} — {visa.duration} stay
                     </p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="rounded-xl bg-background dark:bg-navy-900 p-3">
-                    <p className="text-xs text-text-light dark:text-white/40">
+                  <div className="rounded-xl bg-slate-50 dark:bg-slate-700/50 p-3">
+                    <p className="text-xs text-slate-400 dark:text-slate-500">
                       Processing Time
                     </p>
-                    <p className="text-sm font-semibold text-text dark:text-white">
+                    <p className="text-sm font-semibold text-slate-800 dark:text-white">
                       {visa.processingTime}
                     </p>
                   </div>
-                  <div className="rounded-xl bg-background dark:bg-navy-900 p-3">
-                    <p className="text-xs text-text-light dark:text-white/40">
+                  <div className="rounded-xl bg-slate-50 dark:bg-slate-700/50 p-3">
+                    <p className="text-xs text-slate-400 dark:text-slate-500">
                       Visa Fee
                     </p>
-                    <p
-                      className="text-sm font-semibold text-secondary"
-                      style={{ fontFamily: "var(--font-mono)" }}
-                    >
+                    <p className="text-sm font-semibold text-sky-500">
                       ${visa.price}
                     </p>
                   </div>
                 </div>
 
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-text dark:text-white mb-3">
+                  <h4 className="text-sm font-semibold text-slate-800 dark:text-white mb-3">
                     Requirements
                   </h4>
                   <ul className="space-y-2">
                     {visa.requirements.map((req) => (
                       <li
                         key={req}
-                        className="flex items-start gap-2 text-sm text-text-light dark:text-white/60"
+                        className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300"
                       >
-                        <CheckCircle className="h-4 w-4 text-secondary mt-0.5 shrink-0" />
+                        <CheckCircle className="h-4 w-4 text-sky-500 mt-0.5 shrink-0" />
                         {req}
                       </li>
                     ))}
@@ -125,7 +139,7 @@ export default function VisaServicesPage() {
 
                 <Link
                   href="/contact"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-secondary px-4 py-3 text-sm font-semibold text-white hover:bg-gold-600 transition-colors"
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 py-3 text-sm font-semibold text-white hover:bg-sky-600 transition-colors"
                 >
                   Apply Now
                   <ArrowRight className="h-4 w-4" />
@@ -138,20 +152,20 @@ export default function VisaServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-16 rounded-2xl gradient-navy p-8 sm:p-12"
+            className="mt-16 rounded-2xl bg-gradient-to-r from-sky-500 to-sky-600 p-8 sm:p-12"
           >
             <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">
                   Need Help with Your Visa?
                 </h3>
-                <p className="text-white/60">
+                <p className="text-sky-100">
                   Our visa experts are available 24/7 to assist you.
                 </p>
               </div>
               <a
-                href="tel:+971501234567"
-                className="inline-flex items-center gap-2 rounded-xl gradient-gold px-8 py-4 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-secondary/25 shrink-0"
+                href="tel:+923429005290"
+                className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-sm font-semibold text-sky-600 transition-all hover:shadow-lg shrink-0"
               >
                 <Phone className="h-4 w-4" />
                 Call Now

@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, ArrowRight, Search } from "lucide-react";
+import { Calendar, ArrowRight, Search, ChevronDown } from "lucide-react";
 import { blogPosts } from "@/data";
 
 const categories = ["All", "Dubai", "Pakistan", "Umrah"];
@@ -12,6 +12,7 @@ const categories = ["All", "Dubai", "Pakistan", "Umrah"];
 export default function BlogPage() {
   const [active, setActive] = useState("All");
   const [search, setSearch] = useState("");
+  const postsRef = useRef<HTMLDivElement>(null);
 
   const filtered = blogPosts.filter((post) => {
     const matchesCategory = active === "All" || post.category === active;
@@ -21,36 +22,49 @@ export default function BlogPage() {
     return matchesCategory && matchesSearch;
   });
 
+  const scrollToPosts = () => {
+    if (postsRef.current) {
+      postsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 gradient-hero" />
         <div className="relative z-10 container-premium mx-auto px-4 text-center">
           <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Travel <span className="text-gradient-gold">Blog</span>
+            Travel <span className="text-sky-500">Blog</span>
           </h1>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-6">
             Tips, guides, and inspiration for your next luxury adventure.
           </p>
-          <div className="mx-auto max-w-md">
-            <div className="flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-4 py-3">
-              <Search className="h-4 w-4 text-white/60" />
+          <div className="mx-auto max-w-md mb-6">
+            <div className="flex items-center gap-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-3 shadow-sm">
+              <Search className="h-4 w-4 text-slate-400" />
               <input
                 type="text"
                 placeholder="Search articles..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="flex-1 bg-transparent text-sm text-white placeholder:text-white/40 outline-none"
+                className="flex-1 bg-transparent text-sm text-slate-800 dark:text-white placeholder:text-slate-400 outline-none"
               />
             </div>
           </div>
+          <button
+            onClick={scrollToPosts}
+            className="inline-flex items-center gap-2 text-sm font-medium text-sky-500 hover:text-sky-600 transition-colors"
+          >
+            Scroll Down
+            <ChevronDown className="h-4 w-4 animate-bounce" />
+          </button>
         </div>
       </section>
 
-      <section className="section-padding">
+      <section ref={postsRef} className="section-padding">
         <div className="container-premium mx-auto">
           <div className="flex flex-wrap items-center gap-2 mb-8">
             {categories.map((cat) => (
@@ -59,8 +73,8 @@ export default function BlogPage() {
                 onClick={() => setActive(cat)}
                 className={`rounded-xl px-5 py-2.5 text-sm font-medium transition-all ${
                   active === cat
-                    ? "bg-secondary text-white"
-                    : "bg-white text-text hover:bg-gold-50 dark:bg-navy-800 dark:text-white dark:hover:bg-white/10"
+                    ? "bg-sky-500 text-white"
+                    : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                 }`}
               >
                 {cat}
@@ -78,7 +92,7 @@ export default function BlogPage() {
               >
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group block overflow-hidden rounded-2xl bg-white luxury-shadow dark:bg-navy-800 dark:border dark:border-white/10"
+                  className="group block overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300"
                 >
                   <div className="relative h-56 overflow-hidden">
                     <Image
@@ -88,13 +102,13 @@ export default function BlogPage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute top-3 left-3">
-                      <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-secondary">
+                      <span className="rounded-full bg-white/90 dark:bg-slate-900/80 px-3 py-1 text-xs font-medium text-sky-500">
                         {post.category}
                       </span>
                     </div>
                   </div>
                   <div className="p-5">
-                    <div className="flex items-center gap-2 text-xs text-text-light dark:text-white/40 mb-2">
+                    <div className="flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500 mb-2">
                       <Calendar className="h-3 w-3" />
                       {new Date(post.date).toLocaleDateString("en-US", {
                         month: "short",
@@ -104,13 +118,13 @@ export default function BlogPage() {
                       <span>•</span>
                       <span>{post.author}</span>
                     </div>
-                    <h3 className="text-base font-bold text-text dark:text-white line-clamp-2 mb-2 group-hover:text-secondary transition-colors">
+                    <h3 className="text-base font-bold text-slate-800 dark:text-white line-clamp-2 mb-2 group-hover:text-sky-500 transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-sm text-text-light dark:text-white/60 line-clamp-2">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">
                       {post.excerpt}
                     </p>
-                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-secondary">
+                    <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-sky-500">
                       Read More
                       <ArrowRight className="h-3 w-3" />
                     </span>
@@ -121,7 +135,7 @@ export default function BlogPage() {
           </div>
 
           {filtered.length === 0 && (
-            <div className="py-20 text-center text-text-light dark:text-white/60">
+            <div className="py-20 text-center text-slate-500 dark:text-slate-400">
               <p className="text-lg">No articles found.</p>
             </div>
           )}
