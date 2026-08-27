@@ -57,6 +57,15 @@
   --color-slate-800: #1E293B;
   --color-slate-900: #0F172A;
 
+  --color-navy-50: #f0f4f8;
+  --color-navy-800: #1a2744;
+  --color-navy-900: #0f1b2d;
+  --color-navy-950: #0a1220;
+
+  --color-gold-50: #FFFBEB;
+  --color-gold-600: #D97706;
+  --color-gold-900: #78350F;
+
   --font-heading: "Poppins", "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-mono: "Space Grotesk", monospace;
@@ -212,6 +221,24 @@
 
   .tab-inactive {
     @apply bg-white text-slate-600 hover:bg-slate-50;
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, #F97316 0%, #D97706 100%);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #F97316 0%, #D97706 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .luxury-shadow {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 10px 15px -3px rgba(0, 0, 0, 0.05),
+      0 20px 25px -5px rgba(0, 0, 0, 0.03);
   }
 }
 
