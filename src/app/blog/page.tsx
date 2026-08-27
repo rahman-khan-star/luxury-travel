@@ -34,29 +34,29 @@ export default function BlogPage() {
         <div className="absolute inset-0 gradient-hero" />
         <div className="relative z-10 container-premium mx-auto px-4 text-center">
           <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Travel <span className="text-sky-500">Blog</span>
+            Travel <span className="text-sky-200">Blog</span>
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-6">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto mb-6">
             Tips, guides, and inspiration for your next luxury adventure.
           </p>
           <div className="mx-auto max-w-md mb-6">
-            <div className="flex items-center gap-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-3 shadow-sm">
-              <Search className="h-4 w-4 text-slate-400" />
+            <div className="flex items-center gap-2 rounded-xl bg-white/15 backdrop-blur-md border border-white/20 px-4 py-3">
+              <Search className="h-4 w-4 text-white/60" />
               <input
                 type="text"
                 placeholder="Search articles..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="flex-1 bg-transparent text-sm text-slate-800 dark:text-white placeholder:text-slate-400 outline-none"
+                className="flex-1 bg-transparent text-sm text-white placeholder:text-white/50 outline-none"
               />
             </div>
           </div>
           <button
             onClick={scrollToPosts}
-            className="inline-flex items-center gap-2 text-sm font-medium text-sky-500 hover:text-sky-600 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-sky-200 transition-colors"
           >
             Scroll Down
             <ChevronDown className="h-4 w-4 animate-bounce" />

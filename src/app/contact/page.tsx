@@ -20,12 +20,12 @@ export default function ContactPage() {
         <div className="absolute inset-0 gradient-hero" />
         <div className="relative z-10 container-premium mx-auto px-4 text-center">
           <h1
-            className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white mb-3"
+            className="text-3xl sm:text-4xl font-bold text-white mb-3"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Get in <span className="text-sky-500">Touch</span>
+            Get in <span className="text-sky-200">Touch</span>
           </h1>
-          <p className="text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
+          <p className="text-base text-white/80 max-w-xl mx-auto">
             Ready to plan your dream vacation? Our travel experts are here to
             help.
           </p>

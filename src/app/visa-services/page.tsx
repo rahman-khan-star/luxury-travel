@@ -27,21 +27,21 @@ export default function VisaServicesPage() {
   return (
     <>
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 gradient-hero dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
+        <div className="absolute inset-0 gradient-hero" />
         <div className="relative z-10 container-premium mx-auto px-4 text-center">
           <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Visa <span className="text-sky-500">Services</span>
+            Visa <span className="text-sky-200">Services</span>
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-6">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto mb-6">
             Hassle-free visa processing with a 99.5% approval rate. We handle
             everything from documentation to submission.
           </p>
           <button
             onClick={scrollToCards}
-            className="inline-flex items-center gap-2 text-sm font-medium text-sky-500 hover:text-sky-600 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-sky-200 transition-colors"
           >
             Scroll Down
             <ChevronDown className="h-4 w-4 animate-bounce" />
