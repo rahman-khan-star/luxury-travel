@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -11,6 +12,7 @@ import {
   ArrowRight,
   Shield,
   Users,
+  ChevronDown,
 } from "lucide-react";
 import { tourPackages } from "@/data";
 import { formatPrice } from "@/lib/utils";
@@ -18,6 +20,14 @@ import { formatPrice } from "@/lib/utils";
 const umrahPackages = tourPackages.filter((p) => p.category === "umrah");
 
 export default function UmrahPackagesPage() {
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToCards = () => {
+    if (cardsRef.current) {
+      cardsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <>
       <section className="relative py-32 overflow-hidden">
@@ -29,14 +39,21 @@ export default function UmrahPackagesPage() {
           >
             Umrah <span className="text-gradient-gold">Packages</span>
           </h1>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-lg text-white/70 max-w-2xl mx-auto mb-6">
             A spiritually enriching journey with premium accommodations and
             complete peace of mind.
           </p>
+          <button
+            onClick={scrollToCards}
+            className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-sky-200 transition-colors"
+          >
+            Scroll Down
+            <ChevronDown className="h-4 w-4 animate-bounce" />
+          </button>
         </div>
       </section>
 
-      <section className="section-padding">
+      <section ref={cardsRef} className="section-padding">
         <div className="container-premium mx-auto">
           <div className="grid gap-8 lg:grid-cols-3 mb-16">
             {[
