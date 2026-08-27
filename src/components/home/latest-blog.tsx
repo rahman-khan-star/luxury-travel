@@ -8,7 +8,7 @@ import { blogPosts } from "@/data";
 
 export function LatestBlog() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-white dark:bg-slate-950">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,12 +21,12 @@ export function LatestBlog() {
             Blog
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Latest Travel Stories
           </h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
+          <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
             Tips, guides, and inspiration for your next luxury adventure.
           </p>
         </motion.div>
@@ -42,7 +42,7 @@ export function LatestBlog() {
             >
               <Link
                 href={`/blog/${post.slug}`}
-                className="group block overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300"
+                className="group block overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative h-44 overflow-hidden">
                   <Image
@@ -58,7 +58,7 @@ export function LatestBlog() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <div className="flex items-center gap-2 text-xs text-slate-400 mb-2">
+                  <div className="flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500 mb-2">
                     <Calendar className="h-3.5 w-3.5" />
                     {new Date(post.date).toLocaleDateString("en-US", {
                       month: "short",
@@ -66,10 +66,10 @@ export function LatestBlog() {
                       year: "numeric",
                     })}
                   </div>
-                  <h3 className="text-base font-bold text-slate-800 line-clamp-2 mb-2 group-hover:text-sky-500 transition-colors">
+                  <h3 className="text-base font-bold text-slate-800 dark:text-white line-clamp-2 mb-2 group-hover:text-sky-500 transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-sm text-slate-500 line-clamp-2">
+                  <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">
                     {post.excerpt}
                   </p>
                 </div>

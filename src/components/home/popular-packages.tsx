@@ -9,7 +9,7 @@ import { formatPrice } from "@/lib/utils";
 
 export function PopularPackages() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-white dark:bg-slate-950">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,12 +22,12 @@ export function PopularPackages() {
             Packages
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Popular Tour Packages
           </h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
+          <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
             Curated travel packages designed to deliver exceptional experiences
             at the best value.
           </p>
@@ -41,7 +41,7 @@ export function PopularPackages() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300"
+              className="group overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300"
             >
               <div className="relative h-52 overflow-hidden">
                 <Image
@@ -65,36 +65,36 @@ export function PopularPackages() {
 
               <div className="p-5">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-600">
+                  <span className="rounded-full bg-sky-100 dark:bg-sky-900/50 px-3 py-1 text-xs font-medium text-sky-600 dark:text-sky-400">
                     {pkg.category.charAt(0).toUpperCase() +
                       pkg.category.slice(1)}
                   </span>
                   <div className="flex items-center gap-1">
                     <Star className="h-3.5 w-3.5 fill-orange-400 text-orange-400" />
-                    <span className="text-xs font-semibold text-slate-800">
+                    <span className="text-xs font-semibold text-slate-800 dark:text-white">
                       {pkg.rating}
                     </span>
-                    <span className="text-xs text-slate-400">
+                    <span className="text-xs text-slate-400 dark:text-slate-500">
                       ({pkg.reviewCount})
                     </span>
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-800 mb-2">
+                <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">
                   {pkg.title}
                 </h3>
-                <div className="flex items-center gap-1.5 text-sm text-slate-500 mb-3">
+                <div className="flex items-center gap-1.5 text-sm text-slate-500 dark:text-slate-400 mb-3">
                   <MapPin className="h-4 w-4 text-sky-400" />
                   {pkg.destination}
                 </div>
 
-                <p className="text-sm text-slate-500 line-clamp-2 mb-4">
+                <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2 mb-4">
                   {pkg.description}
                 </p>
 
-                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
                   <div>
-                    <span className="text-xs text-slate-400">From</span>
+                    <span className="text-xs text-slate-400 dark:text-slate-500">From</span>
                     <div className="flex items-center gap-2">
                       <span className="text-xl font-bold text-sky-500">
                         {formatPrice(pkg.price)}

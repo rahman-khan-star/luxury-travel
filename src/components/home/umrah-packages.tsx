@@ -18,7 +18,7 @@ export function UmrahPackages() {
   };
 
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-white dark:bg-slate-950">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

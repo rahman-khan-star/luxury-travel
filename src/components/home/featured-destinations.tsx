@@ -8,7 +8,7 @@ import { destinations } from "@/data";
 
 export function FeaturedDestinations() {
   return (
-    <section className="section-padding bg-slate-50">
+    <section className="section-padding bg-slate-50 dark:bg-slate-900">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,12 +21,12 @@ export function FeaturedDestinations() {
             Destinations
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Featured Destinations
           </h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
+          <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
             Handpicked destinations offering extraordinary experiences and
             unforgettable memories.
           </p>
@@ -43,7 +43,7 @@ export function FeaturedDestinations() {
             >
               <Link
                 href={`/destinations/${dest.id}`}
-                className="group block overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300"
+                className="group block overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative h-56 overflow-hidden">
                   <Image
@@ -67,12 +67,12 @@ export function FeaturedDestinations() {
                   </div>
                 </div>
                 <div className="p-5">
-                  <p className="text-sm text-slate-600 line-clamp-2 mb-4">
+                  <p className="text-sm text-slate-600 dark:text-slate-300 line-clamp-2 mb-4">
                     {dest.description}
                   </p>
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-xs text-slate-400">From</span>
+                      <span className="text-xs text-slate-400 dark:text-slate-500">From</span>
                       <p className="text-xl font-bold text-sky-500">
                         ${dest.priceFrom.toLocaleString()}
                       </p>

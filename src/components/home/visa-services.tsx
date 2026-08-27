@@ -7,7 +7,7 @@ import { visaServices } from "@/data";
 
 export function VisaServices() {
   return (
-    <section className="section-padding bg-slate-50">
+    <section className="section-padding bg-slate-50 dark:bg-slate-900">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -20,12 +20,12 @@ export function VisaServices() {
             Visa
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Visa Services
           </h2>
-          <p className="mt-3 max-w-2xl text-slate-600">
+          <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-300">
             Hassle-free visa processing with a 99.5% approval rate. We handle
             everything from documentation to submission.
           </p>
@@ -39,31 +39,31 @@ export function VisaServices() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-2xl bg-white border border-slate-100 shadow-sm p-6 group hover:shadow-xl transition-all duration-300"
+              className="rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm p-6 group hover:shadow-xl transition-all duration-300"
             >
               <div className="text-4xl mb-4">{visa.flag}</div>
-              <h3 className="text-lg font-bold text-slate-800 mb-1">
+              <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-1">
                 {visa.type}
               </h3>
-              <p className="text-sm text-slate-500 mb-4">
+              <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
                 {visa.country}
               </p>
 
               <div className="space-y-3 mb-5">
-                <div className="flex items-center gap-2.5 text-sm text-slate-600">
+                <div className="flex items-center gap-2.5 text-sm text-slate-600 dark:text-slate-300">
                   <Clock className="h-4 w-4 text-sky-500" />
                   <span>{visa.processingTime}</span>
                 </div>
-                <div className="flex items-center gap-2.5 text-sm text-slate-600">
+                <div className="flex items-center gap-2.5 text-sm text-slate-600 dark:text-slate-300">
                   <Globe className="h-4 w-4 text-sky-500" />
                   <span>{visa.duration} stay</span>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
+              <div className="pt-4 border-t border-slate-100 dark:border-slate-700">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-xs text-slate-400">
+                    <span className="text-xs text-slate-400 dark:text-slate-500">
                       Starting from
                     </span>
                     <p className="text-xl font-bold text-sky-500">

@@ -6,7 +6,7 @@ import { galleryItems } from "@/data";
 
 export function Gallery() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-white dark:bg-slate-950">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,12 +19,12 @@ export function Gallery() {
             Gallery
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Travel Moments
           </h2>
-          <p className="mt-3 mx-auto max-w-2xl text-slate-600">
+          <p className="mt-3 mx-auto max-w-2xl text-slate-600 dark:text-slate-300">
             Captured memories from our travelers around the world.
           </p>
         </motion.div>

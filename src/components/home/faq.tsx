@@ -9,7 +9,7 @@ export function FAQ() {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <section className="section-padding bg-slate-50">
+    <section className="section-padding bg-slate-50 dark:bg-slate-900">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,7 @@ export function FAQ() {
             FAQ
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Frequently Asked Questions
@@ -37,7 +37,7 @@ export function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm"
+              className="overflow-hidden rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm"
             >
               <button
                 onClick={() =>
@@ -45,7 +45,7 @@ export function FAQ() {
                 }
                 className="flex w-full items-center justify-between px-6 py-4 text-left"
               >
-                <span className="text-base font-semibold text-slate-800 pr-4">
+                <span className="text-base font-semibold text-slate-800 dark:text-white pr-4">
                   {faq.question}
                 </span>
                 <ChevronDown
@@ -63,7 +63,7 @@ export function FAQ() {
                     transition={{ duration: 0.2 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-4 text-sm text-slate-600 leading-relaxed">
+                    <div className="px-6 pb-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>

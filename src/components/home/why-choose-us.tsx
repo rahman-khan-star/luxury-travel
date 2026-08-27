@@ -57,19 +57,19 @@ const reasons = [
 
 const colorClasses = {
   sky: {
-    bg: "bg-sky-100",
+    bg: "bg-sky-100 dark:bg-sky-900/50",
     icon: "text-sky-500",
     hoverBg: "group-hover:bg-sky-500",
     hoverIcon: "group-hover:text-white",
   },
   orange: {
-    bg: "bg-orange-100",
+    bg: "bg-orange-100 dark:bg-orange-900/50",
     icon: "text-orange-500",
     hoverBg: "group-hover:bg-orange-500",
     hoverIcon: "group-hover:text-white",
   },
   emerald: {
-    bg: "bg-emerald-100",
+    bg: "bg-emerald-100 dark:bg-emerald-900/50",
     icon: "text-emerald-500",
     hoverBg: "group-hover:bg-emerald-500",
     hoverIcon: "group-hover:text-white",
@@ -78,7 +78,7 @@ const colorClasses = {
 
 export function WhyChooseUs() {
   return (
-    <section className="section-padding bg-slate-50">
+    <section className="section-padding bg-slate-50 dark:bg-slate-900">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,12 +91,12 @@ export function WhyChooseUs() {
             Why Us
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Why Choose Wadi Al Dhaid Tours
           </h2>
-          <p className="mt-3 mx-auto max-w-2xl text-slate-600">
+          <p className="mt-3 mx-auto max-w-2xl text-slate-600 dark:text-slate-300">
             Over a decade of crafting extraordinary journeys with unmatched
             attention to detail.
           </p>
@@ -112,7 +112,7 @@ export function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group rounded-2xl bg-white border border-slate-100 shadow-sm p-6 text-center hover:shadow-xl transition-all duration-300"
+                className="group rounded-2xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-sm p-6 text-center hover:shadow-xl transition-all duration-300"
               >
                 <div
                   className={`mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl ${colors.bg} transition-colors ${colors.hoverBg}`}
@@ -121,10 +121,10 @@ export function WhyChooseUs() {
                     className={`h-6 w-6 ${colors.icon} transition-colors ${colors.hoverIcon}`}
                   />
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 mb-2">
+                <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">
                   {reason.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {reason.description}
                 </p>
               </motion.div>
