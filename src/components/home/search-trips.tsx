@@ -12,27 +12,44 @@ import {
 } from "lucide-react";
 
 export function SearchTrips() {
+  const [fromWhere, setFromWhere] = useState("");
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
   const [guests, setGuests] = useState("");
 
   return (
-    <section className="relative -mt-20 z-20 px-4">
+    <section className="relative -mt-12 z-20 px-4">
       <div className="container-premium mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="rounded-2xl bg-white/10 backdrop-blur-md p-6 border border-white/20 dark:bg-white/5"
+          transition={{ duration: 0.5 }}
+          className="rounded-2xl bg-white/95 dark:bg-white/10 backdrop-blur-md p-5 border border-black/5 dark:border-white/20 shadow-lg"
         >
-          <div className="grid gap-4 md:grid-cols-4">
-            <div className="space-y-2">
-              <label className="text-xs font-medium text-text-light dark:text-white/60 uppercase tracking-wider">
+          <div className="grid gap-3 md:grid-cols-5">
+            <div className="space-y-1.5">
+              <label className="text-[10px] font-medium text-text-light dark:text-white/50 uppercase tracking-wider">
+                From Where
+              </label>
+              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2.5 dark:bg-navy-900 dark:border-white/10">
+                <MapPin className="h-4 w-4 text-secondary shrink-0" />
+                <input
+                  type="text"
+                  placeholder="Departure city"
+                  value={fromWhere}
+                  onChange={(e) => setFromWhere(e.target.value)}
+                  className="flex-1 bg-transparent text-sm text-text placeholder:text-text-light outline-none dark:text-white dark:placeholder:text-white/40"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-[10px] font-medium text-text-light dark:text-white/50 uppercase tracking-wider">
                 Destination
               </label>
-              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-3 dark:bg-navy-900 dark:border-white/10">
-                <MapPin className="h-4 w-4 text-secondary" />
+              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2.5 dark:bg-navy-900 dark:border-white/10">
+                <MapPin className="h-4 w-4 text-secondary shrink-0" />
                 <input
                   type="text"
                   placeholder="Where to?"
@@ -43,12 +60,12 @@ export function SearchTrips() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-xs font-medium text-text-light dark:text-white/60 uppercase tracking-wider">
+            <div className="space-y-1.5">
+              <label className="text-[10px] font-medium text-text-light dark:text-white/50 uppercase tracking-wider">
                 Travel Date
               </label>
-              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-3 dark:bg-navy-900 dark:border-white/10">
-                <Calendar className="h-4 w-4 text-secondary" />
+              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2.5 dark:bg-navy-900 dark:border-white/10">
+                <Calendar className="h-4 w-4 text-secondary shrink-0" />
                 <input
                   type="text"
                   placeholder="Select date"
@@ -59,12 +76,12 @@ export function SearchTrips() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-xs font-medium text-text-light dark:text-white/60 uppercase tracking-wider">
+            <div className="space-y-1.5">
+              <label className="text-[10px] font-medium text-text-light dark:text-white/50 uppercase tracking-wider">
                 Guests
               </label>
-              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-3 dark:bg-navy-900 dark:border-white/10">
-                <Users className="h-4 w-4 text-secondary" />
+              <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 py-2.5 dark:bg-navy-900 dark:border-white/10">
+                <Users className="h-4 w-4 text-secondary shrink-0" />
                 <input
                   type="text"
                   placeholder="How many?"
@@ -78,7 +95,7 @@ export function SearchTrips() {
             <div className="flex items-end">
               <Link
                 href="/tour-packages"
-                className="flex w-full items-center justify-center gap-2 rounded-xl gradient-gold px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-secondary/25"
+                className="flex w-full items-center justify-center gap-2 rounded-xl gradient-gold px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-secondary/25"
               >
                 <Search className="h-4 w-4" />
                 Search Trips

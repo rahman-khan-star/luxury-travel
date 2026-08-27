@@ -1,9 +1,10 @@
 import {
   HeroSection,
   SearchTrips,
+  UmrahPackages,
   FeaturedDestinations,
-  PopularPackages,
   VisaServices,
+  PopularPackages,
   WhyChooseUs,
   Testimonials,
   Gallery,
@@ -18,9 +19,10 @@ export default function Home() {
     <>
       <HeroSection />
       <SearchTrips />
+      <UmrahPackages />
+      <VisaServices />
       <FeaturedDestinations />
       <PopularPackages />
-      <VisaServices />
       <WhyChooseUs />
       <Testimonials />
       <Statistics />

@@ -54,17 +54,17 @@ export function WhyChooseUs() {
     <section className="section-padding">
       <div className="container-premium mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 text-center"
+          transition={{ duration: 0.5 }}
+          className="mb-8 text-center"
         >
           <span className="text-sm font-semibold text-secondary uppercase tracking-wider">
             Why Us
           </span>
           <h2
-            className="mt-2 text-3xl sm:text-4xl font-bold text-white"
+            className="mt-2 text-3xl sm:text-4xl font-bold text-primary dark:text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Why Choose Wadi Al Dhaid Tours
@@ -75,23 +75,23 @@ export function WhyChooseUs() {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason, i) => (
             <motion.div
               key={reason.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group premium-card text-center"
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="group rounded-2xl bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 shadow-sm p-5 text-center hover:shadow-lg transition-all duration-300"
             >
-              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-50 transition-colors group-hover:bg-secondary group-hover:text-white dark:bg-gold-900/20">
-                <reason.icon className="h-6 w-6 text-secondary group-hover:text-white" />
+              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-gold-50 transition-colors group-hover:bg-secondary group-hover:text-white dark:bg-gold-900/20">
+                <reason.icon className="h-5 w-5 text-secondary group-hover:text-white" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-base font-bold text-primary dark:text-white mb-1">
                 {reason.title}
               </h3>
-              <p className="text-sm text-white/60 leading-relaxed">
+              <p className="text-xs text-text-light dark:text-white/60 leading-relaxed">
                 {reason.description}
               </p>
             </motion.div>

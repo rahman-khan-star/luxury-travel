@@ -3,11 +3,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, Clock, MapPin } from "lucide-react";
+import { ArrowRight, Star, MapPin, Clock } from "lucide-react";
 import { tourPackages } from "@/data";
 import { formatPrice } from "@/lib/utils";
 
-export function PopularPackages() {
+const umrahPackages = tourPackages.filter((pkg) => pkg.category === "umrah");
+
+export function UmrahPackages() {
   return (
     <section className="section-padding">
       <div className="container-premium mx-auto">
@@ -19,22 +21,22 @@ export function PopularPackages() {
           className="mb-8"
         >
           <span className="text-sm font-semibold text-secondary uppercase tracking-wider">
-            Packages
+            Sacred Journeys
           </span>
           <h2
             className="mt-2 text-3xl sm:text-4xl font-bold text-primary dark:text-white"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Popular Tour Packages
+            Umrah Packages
           </h2>
           <p className="mt-3 max-w-2xl text-text-light dark:text-white/60">
-            Curated travel packages designed to deliver exceptional experiences
-            at the best value.
+            Premium spiritually enriching journeys to Makkah and Madinah with
+            world-class accommodations and guided rituals.
           </p>
         </motion.div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {tourPackages.slice(0, 6).map((pkg, i) => (
+          {umrahPackages.slice(0, 3).map((pkg, i) => (
             <motion.div
               key={pkg.id}
               initial={{ opacity: 0, y: 15 }}
@@ -50,12 +52,7 @@ export function PopularPackages() {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                {pkg.originalPrice && (
-                  <div className="absolute top-3 left-3 rounded-full bg-red-500 px-2.5 py-0.5 text-xs font-semibold text-white">
-                    Save ${pkg.originalPrice - pkg.price}
-                  </div>
-                )}
-                <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                <div className="absolute top-3 left-3 flex items-center gap-2">
                   <span className="rounded-full bg-white/90 dark:bg-white/20 backdrop-blur-sm px-2.5 py-1 text-xs font-medium text-primary dark:text-white">
                     {pkg.duration}
                   </span>
@@ -64,9 +61,8 @@ export function PopularPackages() {
 
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="rounded-full bg-gold-50 px-2 py-0.5 text-xs font-medium text-secondary dark:bg-gold-900/30">
-                    {pkg.category.charAt(0).toUpperCase() +
-                      pkg.category.slice(1)}
+                  <span className="rounded-full bg-gold-50 dark:bg-gold-900/30 px-2 py-0.5 text-xs font-medium text-secondary">
+                    Umrah
                   </span>
                   <div className="flex items-center gap-1">
                     <Star className="h-3 w-3 fill-secondary text-secondary" />
@@ -93,9 +89,7 @@ export function PopularPackages() {
 
                 <div className="flex items-center justify-between pt-3 border-t border-border dark:border-white/10">
                   <div>
-                    <span className="text-[10px] text-text-light dark:text-white/40">
-                      From
-                    </span>
+                    <span className="text-[10px] text-text-light dark:text-white/40">From</span>
                     <div className="flex items-center gap-2">
                       <span
                         className="text-lg font-bold text-secondary"
@@ -130,10 +124,10 @@ export function PopularPackages() {
           className="mt-8 text-center"
         >
           <Link
-            href="/tour-packages"
+            href="/umrah-packages"
             className="inline-flex items-center gap-2 btn-primary"
           >
-            View All Packages
+            View All Umrah Packages
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>

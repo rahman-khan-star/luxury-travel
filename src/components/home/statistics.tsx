@@ -41,7 +41,7 @@ function AnimatedNumber({ value, suffix }: { value: string; suffix?: string }) {
 
 export function Statistics() {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-16 overflow-hidden">
       <div className="absolute inset-0 gradient-hero" />
       <div className="absolute inset-0 opacity-10">
         <div
@@ -53,20 +53,20 @@ export function Statistics() {
         />
       </div>
       <div className="relative z-10 container-premium mx-auto px-4">
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
           {statistics.map((stat, i) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
               className="text-center"
             >
-              <p className="text-3xl sm:text-4xl font-bold text-secondary mb-1">
+              <p className="text-2xl sm:text-3xl font-bold text-secondary mb-1">
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} />
               </p>
-              <p className="text-sm text-white/60">{stat.label}</p>
+              <p className="text-xs text-white/60">{stat.label}</p>
             </motion.div>
           ))}
         </div>

@@ -42,6 +42,11 @@
   :root {
     --background: #F8FAFC;
     --foreground: #111827;
+    --color-text: #111827;
+    --color-text-light: #6B7280;
+    --color-border: #E5E7EB;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --card-border: #E5E7EB;
   }
 
   .dark {
@@ -49,6 +54,9 @@
     --foreground: #F8FAFC;
     --color-text: #FFFFFF;
     --color-text-light: rgba(255, 255, 255, 0.6);
+    --color-border: rgba(255, 255, 255, 0.12);
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.12);
   }
 
   html {
@@ -56,10 +64,16 @@
   }
 
   body {
-    background: linear-gradient(135deg, #0B1220 0%, #111930 50%, #1A2240 100%);
-    color: #FFFFFF;
+    background: var(--background);
+    color: var(--foreground);
     font-family: var(--font-body);
     min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .dark body {
+    background: linear-gradient(135deg, #0B1220 0%, #111930 50%, #1A2240 100%);
+    color: #FFFFFF;
   }
 
   * {
@@ -71,6 +85,11 @@
   .glass {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .dark .glass {
+    background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
@@ -122,6 +141,11 @@
     transition: all 0.3s;
   }
 
+  .dark .premium-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
   .premium-card:hover {
     background: rgba(255, 255, 255, 0.12);
     border-color: rgba(201, 162, 39, 0.3);
@@ -141,7 +165,7 @@
   }
 
   .section-padding {
-    @apply px-4 py-16 sm:px-6 lg:px-8;
+    @apply px-4 py-12 sm:px-6 lg:px-8;
   }
 
   .container-premium {
@@ -187,4 +211,29 @@
   to {
     box-shadow: 0 0 40px rgba(201, 162, 39, 0.6);
   }
+}
+
+/* Fix flickering/blinking on scroll */
+[style*="transform"] {
+  will-change: transform;
+}
+
+html {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent layout shifts from framer-motion animations */
+section {
+  contain: layout style;
+}
+
+/* Smooth theme transitions */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color;
+  transition-timing-function: ease;
+  transition-duration: 0.15s;
 }

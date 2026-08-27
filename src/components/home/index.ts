@@ -1,5 +1,6 @@
 export { HeroSection } from "./hero-section";
 export { SearchTrips } from "./search-trips";
+export { UmrahPackages } from "./umrah-packages";
 export { FeaturedDestinations } from "./featured-destinations";
 export { PopularPackages } from "./popular-packages";
 export { VisaServices } from "./visa-services";
