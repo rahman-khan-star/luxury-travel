@@ -51,11 +51,6 @@ export function LatestBlog() {
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 left-4">
-                    <span className="rounded-full bg-white/90 backdrop-blur-sm px-3 py-1.5 text-xs font-medium text-sky-500">
-                      {post.category}
-                    </span>
-                  </div>
                 </div>
                 <div className="p-5">
                   <div className="flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500 mb-2">

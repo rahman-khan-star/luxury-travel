@@ -97,7 +97,7 @@ export default function AdminLayout({
       {/* Desktop Sidebar */}
       <aside
         className={`hidden lg:flex flex-col border-r border-border bg-white dark:bg-navy-900 dark:border-white/10 transition-all duration-300 ${
-          sidebarOpen ? "w-64" : "w-20"
+          sidebarOpen ? "w-56" : "w-16"
         }`}
       >
         <div className="flex items-center justify-between px-4 py-5 border-b border-border dark:border-white/10">
@@ -113,10 +113,10 @@ export default function AdminLayout({
           )}
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-gold-50 dark:hover:bg-white/10 transition-colors"
+            className="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 dark:border-white/20 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
           >
             <ChevronLeft
-              className={`h-4 w-4 text-text-light dark:text-white/60 transition-transform ${
+              className={`h-3.5 w-3.5 text-slate-500 dark:text-white/60 transition-transform ${
                 !sidebarOpen ? "rotate-180" : ""
               }`}
             />
