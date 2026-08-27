@@ -57,7 +57,7 @@ const team = [
 export default function AboutPage() {
   return (
     <>
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 gradient-hero" />
         <div className="relative z-10 container-premium mx-auto px-4 text-center">
           <h1
