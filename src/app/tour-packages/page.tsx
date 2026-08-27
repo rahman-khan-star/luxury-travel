@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Star, MapPin, Clock, Search } from "lucide-react";
+import { Star, MapPin, Clock, Search, ChevronDown } from "lucide-react";
 import { tourPackages } from "@/data";
 import { formatPrice } from "@/lib/utils";
 
@@ -18,6 +18,13 @@ const categories = [
 export default function TourPackagesPage() {
   const [active, setActive] = useState("all");
   const [search, setSearch] = useState("");
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToCards = () => {
+    if (cardsRef.current) {
+      cardsRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   const filtered = tourPackages.filter((pkg) => {
     const matchesCategory = active === "all" || pkg.category === active;
@@ -42,7 +49,7 @@ export default function TourPackagesPage() {
             Curated travel packages designed to deliver exceptional experiences
             at the best value.
           </p>
-          <div className="mx-auto max-w-md">
+          <div className="mx-auto max-w-md mb-6">
             <div className="flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-4 py-3">
               <Search className="h-4 w-4 text-white/60" />
               <input
@@ -54,10 +61,17 @@ export default function TourPackagesPage() {
               />
             </div>
           </div>
+          <button
+            onClick={scrollToCards}
+            className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-sky-200 transition-colors"
+          >
+            Scroll Down
+            <ChevronDown className="h-4 w-4 animate-bounce" />
+          </button>
         </div>
       </section>
 
-      <section className="section-padding">
+      <section ref={cardsRef} className="section-padding">
         <div className="container-premium mx-auto">
           <div className="flex flex-wrap items-center gap-2 mb-8">
             {categories.map((cat) => (
