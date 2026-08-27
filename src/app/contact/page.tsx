@@ -16,41 +16,41 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 gradient-hero" />
         <div className="relative z-10 container-premium mx-auto px-4 text-center">
           <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-white mb-3"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Get in <span className="text-gradient-gold">Touch</span>
+            Get in <span className="text-sky-500">Touch</span>
           </h1>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+          <p className="text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
             Ready to plan your dream vacation? Our travel experts are here to
             help.
           </p>
         </div>
       </section>
 
-      <section className="section-padding">
-        <div className="container-premium mx-auto">
-          <div className="grid gap-12 lg:grid-cols-5">
+      <section className="py-10">
+        <div className="container-premium mx-auto px-4">
+          <div className="grid gap-8 lg:grid-cols-5">
             <div className="lg:col-span-3">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.5 }}
               >
                 {submitted ? (
-                  <div className="rounded-2xl bg-white p-12 luxury-shadow dark:bg-navy-800 dark:border dark:border-white/10 text-center">
-                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
-                      <CheckCircle className="h-8 w-8 text-green-600" />
+                  <div className="rounded-2xl bg-white dark:bg-slate-800 p-8 shadow-lg border border-slate-100 dark:border-slate-700 text-center">
+                    <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/30">
+                      <CheckCircle className="h-6 w-6 text-emerald-600" />
                     </div>
-                    <h2 className="text-2xl font-bold text-text dark:text-white mb-2">
+                    <h2 className="text-xl font-bold text-slate-800 dark:text-white mb-2">
                       Message Sent!
                     </h2>
-                    <p className="text-text-light dark:text-white/60">
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
                       We&apos;ll get back to you within 24 hours.
                     </p>
                   </div>
@@ -60,81 +60,81 @@ export default function ContactPage() {
                       e.preventDefault();
                       setSubmitted(true);
                     }}
-                    className="rounded-2xl bg-white p-8 luxury-shadow dark:bg-navy-800 dark:border dark:border-white/10"
+                    className="rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-lg border border-slate-100 dark:border-slate-700"
                   >
-                    <h2 className="text-2xl font-bold text-text dark:text-white mb-6">
+                    <h2 className="text-xl font-bold text-slate-800 dark:text-white mb-5">
                       Send Us a Message
                     </h2>
-                    <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="grid gap-3 sm:grid-cols-2">
                       <div>
-                        <label className="block text-sm font-medium text-text dark:text-white mb-1.5">
+                        <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
                           First Name
                         </label>
                         <input
                           type="text"
                           required
-                          className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-text outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary dark:bg-navy-900 dark:border-white/10 dark:text-white"
+                          className="w-full rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 py-2.5 text-sm text-slate-800 dark:text-white outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
                           placeholder="John"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-text dark:text-white mb-1.5">
+                        <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
                           Last Name
                         </label>
                         <input
                           type="text"
                           required
-                          className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-text outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary dark:bg-navy-900 dark:border-white/10 dark:text-white"
+                          className="w-full rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 py-2.5 text-sm text-slate-800 dark:text-white outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
                           placeholder="Doe"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-text dark:text-white mb-1.5">
+                        <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
                           Email
                         </label>
                         <input
                           type="email"
                           required
-                          className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-text outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary dark:bg-navy-900 dark:border-white/10 dark:text-white"
+                          className="w-full rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 py-2.5 text-sm text-slate-800 dark:text-white outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
                           placeholder="john@example.com"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-text dark:text-white mb-1.5">
+                        <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
                           Phone
                         </label>
                         <input
                           type="tel"
-                          className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-text outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary dark:bg-navy-900 dark:border-white/10 dark:text-white"
+                          className="w-full rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 py-2.5 text-sm text-slate-800 dark:text-white outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
                           placeholder="+92 342 900 5290"
                         />
                       </div>
                       <div className="sm:col-span-2">
-                        <label className="block text-sm font-medium text-text dark:text-white mb-1.5">
+                        <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
                           Subject
                         </label>
                         <input
                           type="text"
                           required
-                          className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-text outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary dark:bg-navy-900 dark:border-white/10 dark:text-white"
+                          className="w-full rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 py-2.5 text-sm text-slate-800 dark:text-white outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
                           placeholder="Dubai Tour Package Inquiry"
                         />
                       </div>
                       <div className="sm:col-span-2">
-                        <label className="block text-sm font-medium text-text dark:text-white mb-1.5">
+                        <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
                           Message
                         </label>
                         <textarea
-                          rows={5}
+                          rows={4}
                           required
-                          className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-text outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary resize-none dark:bg-navy-900 dark:border-white/10 dark:text-white"
+                          className="w-full rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 py-2.5 text-sm text-slate-800 dark:text-white outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 resize-none"
                           placeholder="Tell us about your travel plans..."
                         />
                       </div>
                     </div>
                     <button
                       type="submit"
-                      className="mt-6 inline-flex items-center gap-2 rounded-xl gradient-gold px-8 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-secondary/25"
+                      className="mt-4 inline-flex items-center gap-2 rounded-lg bg-sky-500 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-sky-600"
                     >
                       <Send className="h-4 w-4" />
                       Send Message
@@ -144,13 +144,13 @@ export default function ContactPage() {
               </motion.div>
             </div>
 
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-4">
               {[
                 {
                   icon: Phone,
                   label: "Phone",
                   value: "+92 342 900 5290",
-                  href: "tel:+971501234567",
+                  href: "tel:+923429005290",
                 },
                 {
                   icon: Mail,
@@ -173,22 +173,22 @@ export default function ContactPage() {
               ].map((item, i) => (
                 <motion.div
                   key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="flex items-start gap-4 rounded-2xl bg-white p-6 luxury-shadow dark:bg-navy-800 dark:border dark:border-white/10"
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  className="flex items-start gap-3 rounded-xl bg-white dark:bg-slate-800 p-4 shadow-md border border-slate-100 dark:border-slate-700"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold-50 dark:bg-gold-900/20 shrink-0">
-                    <item.icon className="h-5 w-5 text-secondary" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-100 dark:bg-sky-900/50 shrink-0">
+                    <item.icon className="h-5 w-5 text-sky-500" />
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold text-text dark:text-white mb-0.5">
+                    <h3 className="text-sm font-semibold text-slate-800 dark:text-white mb-0.5">
                       {item.label}
                     </h3>
                     <a
                       href={item.href}
-                      className="text-sm text-text-light dark:text-white/60 hover:text-secondary"
+                      className="text-xs text-slate-500 dark:text-slate-400 hover:text-sky-500"
                     >
                       {item.value}
                     </a>
