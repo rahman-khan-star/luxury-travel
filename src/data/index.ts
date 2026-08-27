@@ -44,7 +44,7 @@ export const destinations: Destination[] = [
     country: "UAE",
     description:
       "Experience the pinnacle of luxury in Dubai, where futuristic skyline meets Arabian heritage. From the Burj Khalifa to pristine beaches, every moment is extraordinary.",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1526493921040-c681874b2888?w=800&q=80",
     rating: 4.9,
     priceFrom: 1299,
     tags: ["luxury", "shopping", "nightlife", "beach"],
@@ -91,7 +91,7 @@ export const tourPackages: TourPackage[] = [
     destination: "Dubai",
     description:
       "An indulgent 5-day journey through Dubai's most exclusive experiences, from private yacht dinners to desert safari adventures.",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1526493921040-c681874b2888?w=800&q=80",
     duration: "5 Days / 4 Nights",
     price: 2499,
     originalPrice: 3199,
@@ -298,7 +298,7 @@ export const blogPosts: BlogPost[] = [
     title: "Top 10 Luxury Experiences in Dubai You Can't Miss",
     excerpt:
       "From private island dinners to helicopter tours over the Palm, discover the most exclusive experiences Dubai has to offer.",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1526493921040-c681874b2888?w=800&q=80",
     author: "Travel Experts",
     date: "2026-01-15",
     category: "Dubai",
@@ -448,7 +448,7 @@ export const faqs: FAQ[] = [
 export const galleryItems: GalleryItem[] = [
   {
     id: "1",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1526493921040-c681874b2888?w=800&q=80",
     title: "Dubai Skyline at Sunset",
     destination: "Dubai",
   },
