@@ -39,7 +39,7 @@ export function Navbar() {
           "sticky top-0 z-50 w-full transition-all duration-500",
           isScrolled
             ? "bg-white/90 dark:bg-navy-900/90 backdrop-blur-xl border-b border-black/5 dark:border-white/10 shadow-sm"
-            : "bg-transparent"
+            : "bg-gradient-to-b from-black/40 via-black/20 to-transparent"
         )}
       >
         <div className="container-premium mx-auto flex items-center justify-between px-4 py-3">

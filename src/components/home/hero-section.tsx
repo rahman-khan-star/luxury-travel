@@ -9,7 +9,7 @@ export function HeroSection() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center">
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -106,7 +106,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent dark:from-primary" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent dark:from-primary" />
     </section>
   );
 }

@@ -18,7 +18,7 @@ export function SearchTrips() {
   const [guests, setGuests] = useState("");
 
   return (
-    <section className="relative -mt-12 z-20 px-4">
+    <section className="relative -mt-20 z-20 px-4 mb-8">
       <div className="container-premium mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
