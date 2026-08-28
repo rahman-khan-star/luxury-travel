@@ -73,7 +73,7 @@ export default function AdminLayout({
     return (
       <div className="flex h-screen items-center justify-center bg-background">
         <div className="text-center">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl gradient-gold mx-auto mb-3">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500 mx-auto mb-3">
             <span className="text-sm font-bold text-white">WA</span>
           </div>
           <p className="text-sm text-text-light dark:text-white/60">Loading...</p>
@@ -140,8 +140,8 @@ export default function AdminLayout({
                 href={link.href}
                 className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all ${
                   isActive
-                    ? "bg-secondary/10 text-secondary"
-                    : "text-text-light hover:bg-gold-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white"
+                    ? "bg-sky-50 text-sky-600 dark:bg-sky-500/10 dark:text-sky-500"
+                    : "text-text-light hover:bg-sky-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white"
                 }`}
                 title={!sidebarOpen ? link.label : undefined}
               >
@@ -155,7 +155,7 @@ export default function AdminLayout({
         <div className="px-3 py-4 border-t border-border dark:border-white/10">
           <Link
             href="/"
-            className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-text-light hover:bg-gold-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white transition-all"
+            className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-text-light hover:bg-sky-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white transition-all"
           >
             <Home className="h-5 w-5" />
             {sidebarOpen && <span>View Website</span>}
@@ -221,8 +221,8 @@ export default function AdminLayout({
                       onClick={() => setMobileOpen(false)}
                       className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all ${
                         isActive
-                          ? "bg-secondary/10 text-secondary"
-                          : "text-text-light hover:bg-gold-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10"
+                          ? "bg-sky-50 text-sky-600 dark:bg-sky-500/10 dark:text-sky-500"
+                          : "text-text-light hover:bg-sky-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10"
                       }`}
                     >
                       <link.icon className="h-5 w-5" />
@@ -243,7 +243,7 @@ export default function AdminLayout({
           <div className="flex items-center gap-3">
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden flex h-9 w-9 items-center justify-center rounded-lg hover:bg-gold-50 dark:hover:bg-white/10"
+              className="lg:hidden flex h-9 w-9 items-center justify-center rounded-lg hover:bg-sky-50 dark:hover:bg-white/10"
             >
               <Menu className="h-5 w-5 text-text dark:text-white" />
             </button>
@@ -256,12 +256,12 @@ export default function AdminLayout({
             </h1>
           </div>
           <div className="flex items-center gap-3">
-            <button className="relative flex h-9 w-9 items-center justify-center rounded-lg hover:bg-gold-50 dark:hover:bg-white/10">
+            <button className="relative flex h-9 w-9 items-center justify-center rounded-lg hover:bg-sky-50 dark:hover:bg-white/10">
               <Bell className="h-5 w-5 text-text-light dark:text-white/60" />
-              <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-secondary" />
+              <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-sky-500" />
             </button>
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-white text-xs font-bold">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-500 text-white text-xs font-bold">
                 A
               </div>
               <span className="hidden sm:block text-sm font-medium text-text dark:text-white">

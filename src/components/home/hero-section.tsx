@@ -10,7 +10,7 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[85vh] flex items-end overflow-hidden pb-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-200 to-sky-100" />
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-200 to-sky-100 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950" />
 
       <div
         className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-90"
@@ -21,7 +21,7 @@ export function HeroSection() {
         }}
       />
 
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-slate-950 dark:via-slate-950/80" />
 
       <div className="relative z-10 container-premium mx-auto px-4">
         <div className="max-w-2xl">
@@ -31,7 +31,7 @@ export function HeroSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/90 backdrop-blur-sm border border-sky-200 px-4 py-2 text-sm text-sky-600 mb-6 shadow-sm">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-white/10 backdrop-blur-sm border border-sky-200 dark:border-white/20 px-4 py-2 text-sm text-sky-600 dark:text-sky-300 mb-6 shadow-sm">
               <Plane className="h-4 w-4" />
               Premium Travel Experiences
             </span>
@@ -42,7 +42,7 @@ export function HeroSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 leading-[1.05] mb-5"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white leading-[1.05] mb-5"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Explore the World
@@ -55,7 +55,7 @@ export function HeroSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-slate-600 max-w-lg mb-8 leading-relaxed"
+            className="text-lg text-slate-600 dark:text-slate-300 max-w-lg mb-8 leading-relaxed"
           >
             Discover amazing destinations, book flights, hotels, and complete
             travel packages. Your dream vacation is just a click away.
@@ -77,7 +77,7 @@ export function HeroSection() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/90 backdrop-blur-sm px-8 py-4 text-base font-semibold text-slate-700 border border-slate-200 transition-all duration-300 hover:bg-white hover:shadow-lg"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/90 dark:bg-white/10 backdrop-blur-sm px-8 py-4 text-base font-semibold text-slate-700 dark:text-white border border-slate-200 dark:border-white/20 transition-all duration-300 hover:bg-white dark:hover:bg-white/20 hover:shadow-lg"
             >
               Plan Your Trip
             </Link>
@@ -91,30 +91,30 @@ export function HeroSection() {
             className="mt-8 flex items-center gap-8"
           >
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-white/90 dark:bg-white/10 flex items-center justify-center shadow-sm">
                 <MapPin className="h-5 w-5 text-sky-500" />
               </div>
               <div>
-                <div className="font-bold text-slate-800">50+</div>
-                <div className="text-xs text-slate-500">Destinations</div>
+                <div className="font-bold text-slate-800 dark:text-white">50+</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">Destinations</div>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow-sm">
-                <Calendar className="h-5 w-5 text-orange-500" />
+              <div className="w-10 h-10 rounded-full bg-white/90 dark:bg-white/10 flex items-center justify-center shadow-sm">
+                <Calendar className="h-5 w-5 text-sky-500" />
               </div>
               <div>
-                <div className="font-bold text-slate-800">10K+</div>
-                <div className="text-xs text-slate-500">Happy Travelers</div>
+                <div className="font-bold text-slate-800 dark:text-white">10K+</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">Happy Travelers</div>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white/90 flex items-center justify-center shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-white/90 dark:bg-white/10 flex items-center justify-center shadow-sm">
                 <Search className="h-5 w-5 text-emerald-500" />
               </div>
               <div>
-                <div className="font-bold text-slate-800">4.9/5</div>
-                <div className="text-xs text-slate-500">Rating</div>
+                <div className="font-bold text-slate-800 dark:text-white">4.9/5</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">Rating</div>
               </div>
             </div>
           </motion.div>

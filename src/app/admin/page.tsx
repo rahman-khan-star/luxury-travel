@@ -125,7 +125,7 @@ export default function AdminDashboard() {
             <h2 className="text-lg font-bold text-text dark:text-white">
               Recent Bookings
             </h2>
-            <button className="text-sm text-secondary hover:underline">
+            <button className="text-sm text-sky-500 hover:underline">
               View All
             </button>
           </div>
@@ -173,7 +173,7 @@ export default function AdminDashboard() {
                     </td>
                     <td className="py-3">
                       <p
-                        className="text-sm font-semibold text-secondary"
+                        className="text-sm font-semibold text-sky-500"
                         style={{ fontFamily: "var(--font-mono)" }}
                       >
                         {booking.amount}
@@ -206,36 +206,36 @@ export default function AdminDashboard() {
             <div className="space-y-2">
               <a
                 href="/admin/destinations"
-                className="flex items-center gap-3 rounded-xl p-3 text-sm text-text-light hover:bg-gold-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white transition-colors"
+                className="flex items-center gap-3 rounded-xl p-3 text-sm text-text-light hover:bg-sky-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white transition-colors"
               >
-                <MapPin className="h-4 w-4 text-secondary" />
+                <MapPin className="h-4 w-4 text-sky-500" />
                 Add New Destination
               </a>
               <a
                 href="/admin/packages"
-                className="flex items-center gap-3 rounded-xl p-3 text-sm text-text-light hover:bg-gold-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white transition-colors"
+                className="flex items-center gap-3 rounded-xl p-3 text-sm text-text-light hover:bg-sky-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white transition-colors"
               >
-                <Package className="h-4 w-4 text-secondary" />
+                <Package className="h-4 w-4 text-sky-500" />
                 Create Tour Package
               </a>
               <a
                 href="/admin/blog"
-                className="flex items-center gap-3 rounded-xl p-3 text-sm text-text-light hover:bg-gold-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white transition-colors"
+                className="flex items-center gap-3 rounded-xl p-3 text-sm text-text-light hover:bg-sky-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white transition-colors"
               >
-                <MessageSquare className="h-4 w-4 text-secondary" />
+                <MessageSquare className="h-4 w-4 text-sky-500" />
                 Write Blog Post
               </a>
               <a
                 href="/admin/messages"
-                className="flex items-center gap-3 rounded-xl p-3 text-sm text-text-light hover:bg-gold-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white transition-colors"
+                className="flex items-center gap-3 rounded-xl p-3 text-sm text-text-light hover:bg-sky-50 hover:text-text dark:text-white/60 dark:hover:bg-white/10 dark:hover:text-white transition-colors"
               >
-                <Eye className="h-4 w-4 text-secondary" />
+                <Eye className="h-4 w-4 text-sky-500" />
                 View Messages
               </a>
             </div>
           </div>
 
-          <div className="rounded-2xl bg-gradient-to-br from-secondary to-gold-600 p-6">
+          <div className="rounded-2xl bg-gradient-to-br from-sky-500 to-sky-600 p-6">
             <h3 className="text-lg font-bold text-white mb-1">
               Website Performance
             </h3>
