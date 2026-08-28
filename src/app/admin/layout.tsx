@@ -19,6 +19,7 @@ import {
   Bell,
   User,
   Home,
+  Plane,
 } from "lucide-react";
 
 const sidebarLinks = [
@@ -103,12 +104,17 @@ export default function AdminLayout({
         <div className="flex items-center justify-between px-4 py-5 border-b border-border dark:border-white/10">
           {sidebarOpen && (
             <Link href="/admin" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl gradient-gold">
-                <span className="text-sm font-bold text-white">WA</span>
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-500 shrink-0">
+                <Plane className="h-4 w-4 text-white" />
               </div>
-              <span className="text-sm font-bold text-text dark:text-white truncate">
-                WADI AL DHAID
-              </span>
+              <div className="flex flex-col">
+                <span className="text-sm font-bold leading-tight text-text dark:text-white tracking-tight">
+                  WADI AL DHAID TOURS
+                </span>
+                <span className="text-[8px] font-medium uppercase tracking-[0.15em] text-sky-500">
+                  Premium Experiences
+                </span>
+              </div>
             </Link>
           )}
           <button
@@ -183,12 +189,17 @@ export default function AdminLayout({
             >
               <div className="flex items-center justify-between px-4 py-5 border-b border-border dark:border-white/10">
                 <Link href="/admin" className="flex items-center gap-2">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl gradient-gold">
-                    <span className="text-sm font-bold text-white">WA</span>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-500 shrink-0">
+                    <Plane className="h-4 w-4 text-white" />
                   </div>
-                  <span className="text-sm font-bold text-text dark:text-white">
-                    WADI AL DHAID
-                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-bold leading-tight text-text dark:text-white tracking-tight">
+                      WADI AL DHAID TOURS
+                    </span>
+                    <span className="text-[8px] font-medium uppercase tracking-[0.15em] text-sky-500">
+                      Premium Experiences
+                    </span>
+                  </div>
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}
@@ -226,7 +237,7 @@ export default function AdminLayout({
       </AnimatePresence>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-hidden ml-1">
         {/* Top Bar */}
         <header className="flex items-center justify-between px-4 lg:px-6 py-3 border-b border-border bg-white dark:bg-navy-900 dark:border-white/10">
           <div className="flex items-center gap-3">
