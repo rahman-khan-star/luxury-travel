@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Search, ArrowRight, Plane, MapPin, Calendar } from "lucide-react";
 
 export function HeroSection() {
@@ -12,14 +11,6 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[85vh] flex items-end overflow-hidden pb-32">
       <div className="absolute inset-0 bg-gradient-to-b from-sky-100 via-sky-50 to-white dark:from-slate-800 dark:via-slate-900 dark:to-slate-950" />
-
-      <Image
-        src="/hero-bg.jpg.webp"
-        alt="Travel background"
-        fill
-        className="object-cover object-center"
-        priority
-      />
 
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-slate-950 dark:via-slate-950/80" />
 
