@@ -10,14 +10,13 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[85vh] flex items-end overflow-hidden pb-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-sky-300 via-sky-200 to-sky-100 dark:from-slate-800 dark:via-slate-900 dark:to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-100 via-sky-50 to-white dark:from-slate-800 dark:via-slate-900 dark:to-slate-950" />
 
       <div
-        className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-90"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=1920&q=80)",
-          backgroundPosition: "center 30%",
+          backgroundImage: "url(/hero-bg.jpg)",
+          backgroundPosition: "center 40%",
         }}
       />
 
@@ -30,10 +29,11 @@ export function HeroSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 mb-6"
           >
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-white/10 backdrop-blur-sm border border-sky-200 dark:border-white/20 px-4 py-2 text-sm text-sky-600 dark:text-sky-300 mb-6 shadow-sm">
-              <Plane className="h-4 w-4" />
-              Premium Travel Experiences
+            <div className="w-10 h-0.5 bg-slate-800 dark:bg-white" />
+            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+              It&apos;s time to go
             </span>
           </motion.div>
 
@@ -45,21 +45,21 @@ export function HeroSection() {
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white leading-[1.05] mb-5"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Explore the World
+            Don&apos;t just imagine it,
             <br />
-            <span className="text-sky-500">with Confidence</span>
+            make it happen, <span className="text-sky-500">Travel</span>
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-slate-600 dark:text-slate-300 max-w-lg mb-8 leading-relaxed"
+            className="flex items-center gap-3 mb-8"
           >
-            Discover amazing destinations, book flights, hotels, and complete
-            travel packages. Your dream vacation is just a click away.
-          </motion.p>
+            <div className="w-12 h-1 bg-red-500 rounded-full" />
+            <div className="w-8 h-1 bg-yellow-400 rounded-full" />
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
