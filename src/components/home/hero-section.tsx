@@ -15,7 +15,7 @@ export function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url(/hero-bg.jpg)",
+          backgroundImage: "url(/hero-bg.jpg.webp)",
           backgroundPosition: "center 40%",
         }}
       />
