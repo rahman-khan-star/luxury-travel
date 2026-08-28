@@ -11,8 +11,6 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-[85vh] flex items-end overflow-hidden pb-24">
-      <div className="absolute inset-0 bg-gradient-to-b from-sky-100 via-sky-50 to-white dark:from-slate-800 dark:via-slate-900 dark:to-slate-950" />
-
       <Image
         src="/hero-bg.jpg.jpg"
         alt="Travel background"
