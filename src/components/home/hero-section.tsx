@@ -22,16 +22,16 @@ export function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-slate-950 dark:via-slate-950/80" />
 
       <div className="relative z-10 container-premium mx-auto px-4">
-        <div className="max-w-2xl">
+        <div className="max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 mb-6"
+            className="flex items-center gap-3 mb-4"
           >
-            <div className="w-10 h-0.5 bg-slate-800 dark:bg-white" />
-            <span className="text-sm font-medium text-slate-600 dark:text-slate-300">
+            <div className="w-8 h-0.5 bg-white" />
+            <span className="text-xs font-medium text-white">
               It&apos;s time to go
             </span>
           </motion.div>
@@ -41,12 +41,12 @@ export function HeroSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 dark:text-white leading-[1.05] mb-5"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             Don&apos;t just imagine it,
             <br />
-            make it happen, <span className="text-sky-500">Travel</span>
+            make it happen, <span className="text-sky-400">Travel</span>
           </motion.h1>
 
           <motion.div
@@ -54,10 +54,10 @@ export function HeroSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center gap-3 mb-8"
+            className="flex items-center gap-3 mb-6"
           >
-            <div className="w-12 h-1 bg-red-500 rounded-full" />
-            <div className="w-8 h-1 bg-yellow-400 rounded-full" />
+            <div className="w-10 h-1 bg-red-500 rounded-full" />
+            <div className="w-6 h-1 bg-yellow-400 rounded-full" />
           </motion.div>
 
           <motion.div
@@ -87,33 +87,33 @@ export function HeroSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-8 flex items-center gap-8"
+            className="mt-6 flex items-center gap-6"
           >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white/90 dark:bg-white/10 flex items-center justify-center shadow-sm">
-                <MapPin className="h-5 w-5 text-sky-500" />
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                <MapPin className="h-4 w-4 text-white" />
               </div>
               <div>
-                <div className="font-bold text-slate-800 dark:text-white">50+</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">Destinations</div>
+                <div className="font-bold text-white text-sm">50+</div>
+                <div className="text-xs text-white/70">Destinations</div>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white/90 dark:bg-white/10 flex items-center justify-center shadow-sm">
-                <Calendar className="h-5 w-5 text-sky-500" />
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                <Calendar className="h-4 w-4 text-white" />
               </div>
               <div>
-                <div className="font-bold text-slate-800 dark:text-white">10K+</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">Happy Travelers</div>
+                <div className="font-bold text-white text-sm">10K+</div>
+                <div className="text-xs text-white/70">Happy Travelers</div>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-white/90 dark:bg-white/10 flex items-center justify-center shadow-sm">
-                <Search className="h-5 w-5 text-emerald-500" />
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                <Search className="h-4 w-4 text-white" />
               </div>
               <div>
-                <div className="font-bold text-slate-800 dark:text-white">4.9/5</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">Rating</div>
+                <div className="font-bold text-white text-sm">4.9/5</div>
+                <div className="text-xs text-white/70">Rating</div>
               </div>
             </div>
           </motion.div>
