@@ -10,7 +10,7 @@ export function HeroSection() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <section className="relative min-h-[80vh] flex items-end overflow-hidden pb-40">
+    <section className="relative min-h-[80vh] overflow-hidden pb-40">
       <Image
         src="/hero-bg.jpg"
         alt="Travel background"
@@ -24,8 +24,8 @@ export function HeroSection() {
 
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
-      <div className="relative z-10 container-premium mx-auto px-4 w-full">
-        <div className="flex flex-col items-start gap-6 sm:items-end sm:flex-row sm:justify-between sm:gap-8 pt-32 sm:pt-44">
+      <div className="relative z-10 container-premium mx-auto px-4 w-full mt-auto">
+        <div className="flex flex-col items-start gap-6 sm:items-end sm:flex-row sm:justify-between sm:gap-8">
           {/* Left: Empty */}
           <div className="max-w-xs sm:max-w-lg" />
 
