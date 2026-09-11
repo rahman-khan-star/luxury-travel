@@ -27,7 +27,7 @@ export function HeroSection() {
       <div className="relative z-10 container-premium mx-auto px-4 w-full">
         <div className="flex flex-col items-start gap-6 sm:items-end sm:flex-row sm:justify-between sm:gap-8">
           {/* Left: Text */}
-          <div className="max-w-md sm:max-w-lg">
+          <div className="max-w-xs sm:max-w-lg">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -35,8 +35,8 @@ export function HeroSection() {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"
             >
-              <div className="w-6 sm:w-8 h-0.5 bg-white" />
-              <span className="text-[10px] sm:text-xs font-medium text-white">
+              <div className="w-5 sm:w-8 h-0.5 bg-white" />
+              <span className="text-[9px] sm:text-xs font-medium text-white">
                 It&apos;s time to go
               </span>
             </motion.div>
@@ -46,7 +46,7 @@ export function HeroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-xl sm:text-3xl lg:text-5xl font-bold text-white leading-[1.15] sm:leading-[1.1] mb-3 sm:mb-4"
+              className="text-lg sm:text-3xl lg:text-5xl font-bold text-white leading-[1.15] sm:leading-[1.1] mb-3 sm:mb-4 drop-shadow-lg"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Don&apos;t just imagine it,
@@ -59,10 +59,10 @@ export function HeroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex items-center gap-3"
+              className="flex items-center gap-2 sm:gap-3"
             >
-              <div className="w-8 sm:w-10 h-1 bg-red-500 rounded-full" />
-              <div className="w-5 sm:w-6 h-1 bg-yellow-400 rounded-full" />
+              <div className="w-6 sm:w-10 h-1 bg-red-500 rounded-full" />
+              <div className="w-4 sm:w-6 h-1 bg-yellow-400 rounded-full" />
             </motion.div>
           </div>
 
