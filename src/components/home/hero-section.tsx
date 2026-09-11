@@ -16,7 +16,7 @@ export function HeroSection() {
         alt="Travel background"
         fill
         sizes="100vw"
-        className="object-cover object-center"
+        className="object-cover object-top"
         priority
       />
 
