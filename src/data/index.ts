@@ -36,6 +36,7 @@ export const navLinks: NavLink[] = [
   { label: "Hotels", href: "/hotels" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
+  { label: "Our Team", href: "/#team" },
 ];
 
 export const destinations: Destination[] = [
