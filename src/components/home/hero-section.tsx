@@ -25,7 +25,7 @@ export function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
       <div className="relative z-10 container-premium mx-auto px-4 w-full">
-        <div className="flex flex-col items-start gap-6 sm:items-end sm:flex-row sm:justify-between sm:gap-8">
+        <div className="flex flex-col items-start gap-6 sm:items-end sm:flex-row sm:justify-between sm:gap-8 pt-20 sm:pt-32">
           {/* Left: Empty */}
           <div className="max-w-xs sm:max-w-lg" />
 
