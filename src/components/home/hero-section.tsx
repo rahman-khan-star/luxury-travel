@@ -26,21 +26,8 @@ export function HeroSection() {
 
       <div className="relative z-10 container-premium mx-auto px-4 w-full">
         <div className="flex flex-col items-start gap-6 sm:items-end sm:flex-row sm:justify-between sm:gap-8">
-          {/* Left: Text */}
-          <div className="max-w-xs sm:max-w-lg">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg sm:text-3xl lg:text-5xl font-bold text-white leading-[1.15] sm:leading-[1.1] mb-3 sm:mb-4 drop-shadow-lg"
-              style={{ fontFamily: "var(--font-heading)" }}
-            >
-              Don&apos;t just imagine it,
-              <br />
-              make it happen, <span className="text-sky-400">Travel</span>
-            </motion.h1>
-          </div>
+          {/* Left: Empty */}
+          <div className="max-w-xs sm:max-w-lg" />
 
           {/* Right: Buttons + Stats */}
           <div className="flex flex-col items-start sm:items-end gap-4 sm:gap-5 w-full sm:w-auto">
