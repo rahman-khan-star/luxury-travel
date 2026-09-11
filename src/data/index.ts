@@ -505,7 +505,7 @@ export const teamMembers: TeamMember[] = [
     id: "1",
     name: "Ahmed Al Dhaid",
     designation: "CEO & Founder",
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    photo: "/team-founder.jpg",
     phone: "+971501234567",
     whatsapp: "+971501234567",
     description: "With over 15 years in luxury travel, Ahmed leads our vision to deliver extraordinary journeys across the globe.",
