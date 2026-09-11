@@ -46,7 +46,7 @@ export function HeroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.1] mb-4"
+              className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white leading-[1.1] mb-4"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Don&apos;t just imagine it,
