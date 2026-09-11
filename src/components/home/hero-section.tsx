@@ -77,14 +77,14 @@ export function HeroSection() {
             >
               <Link
                 href="/tour-packages"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/30"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 py-2.5 text-xs font-semibold text-white transition-all duration-300 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/30 sm:px-6 sm:py-3 sm:text-sm"
               >
                 Start Exploring
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white border border-white/30 transition-all duration-300 hover:bg-white/20 hover:shadow-lg"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 backdrop-blur-sm px-4 py-2.5 text-xs font-semibold text-white border border-white/30 transition-all duration-300 hover:bg-white/20 hover:shadow-lg sm:px-6 sm:py-3 sm:text-sm"
               >
                 Plan Your Trip
               </Link>
