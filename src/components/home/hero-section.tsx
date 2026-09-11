@@ -25,18 +25,18 @@ export function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
       <div className="relative z-10 container-premium mx-auto px-4 w-full">
-        <div className="flex flex-col lg:flex-row items-end justify-between gap-8">
+        <div className="flex flex-col items-start gap-6 sm:items-end sm:flex-row sm:justify-between sm:gap-8">
           {/* Left: Text */}
-          <div className="max-w-lg">
+          <div className="max-w-md sm:max-w-lg">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="flex items-center gap-3 mb-3"
+              className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"
             >
-              <div className="w-8 h-0.5 bg-white" />
-              <span className="text-xs font-medium text-white">
+              <div className="w-6 sm:w-8 h-0.5 bg-white" />
+              <span className="text-[10px] sm:text-xs font-medium text-white">
                 It&apos;s time to go
               </span>
             </motion.div>
@@ -46,7 +46,7 @@ export function HeroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white leading-[1.1] mb-4"
+              className="text-xl sm:text-3xl lg:text-5xl font-bold text-white leading-[1.15] sm:leading-[1.1] mb-3 sm:mb-4"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Don&apos;t just imagine it,
@@ -61,19 +61,19 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex items-center gap-3"
             >
-              <div className="w-10 h-1 bg-red-500 rounded-full" />
-              <div className="w-6 h-1 bg-yellow-400 rounded-full" />
+              <div className="w-8 sm:w-10 h-1 bg-red-500 rounded-full" />
+              <div className="w-5 sm:w-6 h-1 bg-yellow-400 rounded-full" />
             </motion.div>
           </div>
 
           {/* Right: Buttons + Stats */}
-          <div className="flex flex-col items-end gap-5">
+          <div className="flex flex-col items-start sm:items-end gap-4 sm:gap-5 w-full sm:w-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex gap-3"
+              className="flex gap-2 sm:gap-3"
             >
               <Link
                 href="/tour-packages"
@@ -95,33 +95,33 @@ export function HeroSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center gap-5"
+              className="flex items-center gap-3 sm:gap-5"
             >
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <MapPin className="h-4 w-4 text-white" />
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center">
+                  <MapPin className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
                 </div>
                 <div>
-                  <div className="font-bold text-white text-sm">50+</div>
-                  <div className="text-xs text-white/70">Destinations</div>
+                  <div className="font-bold text-white text-xs sm:text-sm">50+</div>
+                  <div className="text-[10px] sm:text-xs text-white/70">Destinations</div>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <Calendar className="h-4 w-4 text-white" />
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center">
+                  <Calendar className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
                 </div>
                 <div>
-                  <div className="font-bold text-white text-sm">10K+</div>
-                  <div className="text-xs text-white/70">Happy Travelers</div>
+                  <div className="font-bold text-white text-xs sm:text-sm">10K+</div>
+                  <div className="text-[10px] sm:text-xs text-white/70">Happy Travelers</div>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                  <Search className="h-4 w-4 text-white" />
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center">
+                  <Search className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
                 </div>
                 <div>
-                  <div className="font-bold text-white text-sm">4.9/5</div>
-                  <div className="text-xs text-white/70">Rating</div>
+                  <div className="font-bold text-white text-xs sm:text-sm">4.9/5</div>
+                  <div className="text-[10px] sm:text-xs text-white/70">Rating</div>
                 </div>
               </div>
             </motion.div>
