@@ -20,12 +20,14 @@ import {
   User,
   Home,
   Plane,
+  Users,
 } from "lucide-react";
 
 const sidebarLinks = [
   { label: "Dashboard", href: "/admin", icon: LayoutGrid },
   { label: "Destinations", href: "/admin/destinations", icon: MapPin },
   { label: "Tour Packages", href: "/admin/packages", icon: Package },
+  { label: "Team Members", href: "/admin/team", icon: Users },
   { label: "Testimonials", href: "/admin/testimonials", icon: Star },
   { label: "Blog Posts", href: "/admin/blog", icon: FileText },
   { label: "Messages", href: "/admin/messages", icon: MessageSquare },

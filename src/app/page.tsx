@@ -12,6 +12,7 @@ import {
   LatestBlog,
   FAQ,
   ContactCTA,
+  TeamSection,
 } from "@/components/home";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
       <FeaturedDestinations />
       <PopularPackages />
       <WhyChooseUs />
+      <TeamSection />
       <Testimonials />
       <Statistics />
       <Gallery />

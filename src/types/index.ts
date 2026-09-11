@@ -89,3 +89,15 @@ export interface SearchResult {
   image: string;
   href: string;
 }
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  designation: string;
+  photo: string;
+  phone: string;
+  whatsapp: string;
+  description?: string;
+  isActive: boolean;
+  displayOrder: number;
+}

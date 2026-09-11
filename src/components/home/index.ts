@@ -11,3 +11,4 @@ export { Statistics } from "./statistics";
 export { LatestBlog } from "./latest-blog";
 export { FAQ } from "./faq";
 export { ContactCTA } from "./contact-cta";
+export { TeamSection } from "./team-section";

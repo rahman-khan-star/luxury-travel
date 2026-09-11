@@ -8,6 +8,7 @@ import type {
   GalleryItem,
   Statistic,
   NavLink,
+  TeamMember,
 } from "@/types";
 
 export const navLinks: NavLink[] = [
@@ -491,4 +492,78 @@ export const statistics: Statistic[] = [
   { label: "Years Experience", value: "12", suffix: "+" },
   { label: "Customer Rating", value: "4.9", suffix: "/5" },
   { label: "Visa Success Rate", value: "99.5", suffix: "%" },
+];
+
+export const agencyContact = {
+  phone: "+971501234567",
+  whatsapp: "+971501234567",
+};
+
+export const teamMembers: TeamMember[] = [
+  {
+    id: "1",
+    name: "Ahmed Al Dhaid",
+    designation: "CEO & Founder",
+    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    phone: "+971501234567",
+    whatsapp: "+971501234567",
+    description: "With over 15 years in luxury travel, Ahmed leads our vision to deliver extraordinary journeys across the globe.",
+    isActive: true,
+    displayOrder: 1,
+  },
+  {
+    id: "2",
+    name: "Fatima Hassan",
+    designation: "General Manager",
+    photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+    phone: "+971509876543",
+    whatsapp: "+971509876543",
+    description: "Fatima oversees daily operations ensuring every client receives seamless, world-class service.",
+    isActive: true,
+    displayOrder: 2,
+  },
+  {
+    id: "3",
+    name: "Omar Patel",
+    designation: "Senior Travel Consultant",
+    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+    phone: "+971502345678",
+    whatsapp: "+971502345678",
+    description: "Omar crafts bespoke itineraries tailored to each client's unique preferences and desires.",
+    isActive: true,
+    displayOrder: 3,
+  },
+  {
+    id: "4",
+    name: "Sara Khan",
+    designation: "Tour Manager",
+    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+    phone: "+971503456789",
+    whatsapp: "+971503456789",
+    description: "Sara ensures every tour runs flawlessly, coordinating logistics and enriching client experiences.",
+    isActive: true,
+    displayOrder: 4,
+  },
+  {
+    id: "5",
+    name: "Khalid Mirza",
+    designation: "Customer Support Lead",
+    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
+    phone: "+971504567890",
+    whatsapp: "+971504567890",
+    description: "Khalid and his team provide 24/7 support to ensure peace of mind throughout your journey.",
+    isActive: true,
+    displayOrder: 5,
+  },
+  {
+    id: "6",
+    name: "Aisha Noor",
+    designation: "Visa Specialist",
+    photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
+    phone: "+971505678901",
+    whatsapp: "+971505678901",
+    description: "Aisha handles all visa processing with a 99.5% approval rate, making travel hassle-free.",
+    isActive: true,
+    displayOrder: 6,
+  },
 ];
