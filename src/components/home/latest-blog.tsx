@@ -49,7 +49,8 @@ export function LatestBlog() {
                     src={post.image}
                     alt={post.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    style={{ willChange: "transform" }}
                   />
                 </div>
                 <div className="p-5">

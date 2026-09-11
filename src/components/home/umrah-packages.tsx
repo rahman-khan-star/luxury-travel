@@ -64,7 +64,8 @@ export function UmrahPackages() {
                   src={pkg.image}
                   alt={pkg.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  style={{ willChange: "transform" }}
                 />
                 <div className="absolute top-4 left-4 flex items-center gap-2">
                   <span className="rounded-full bg-white/90 backdrop-blur-sm px-3 py-1.5 text-xs font-medium text-slate-700 flex items-center gap-1.5">

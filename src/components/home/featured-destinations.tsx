@@ -50,7 +50,8 @@ export function FeaturedDestinations() {
                     src={dest.image}
                     alt={dest.name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    style={{ willChange: "transform" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute top-4 right-4 flex items-center gap-1 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1.5">

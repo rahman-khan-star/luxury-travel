@@ -28,7 +28,8 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
         <img
           src={member.photo}
           alt={member.name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          style={{ willChange: "transform" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
       </div>

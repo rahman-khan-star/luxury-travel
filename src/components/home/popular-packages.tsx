@@ -48,7 +48,8 @@ export function PopularPackages() {
                   src={pkg.image}
                   alt={pkg.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  style={{ willChange: "transform" }}
                 />
                 {pkg.originalPrice && (
                   <div className="absolute top-4 left-4 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white">
