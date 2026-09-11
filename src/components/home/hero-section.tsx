@@ -28,19 +28,6 @@ export function HeroSection() {
         <div className="flex flex-col items-start gap-6 sm:items-end sm:flex-row sm:justify-between sm:gap-8">
           {/* Left: Text */}
           <div className="max-w-xs sm:max-w-lg">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"
-            >
-              <div className="w-5 sm:w-8 h-0.5 bg-white" />
-              <span className="text-[9px] sm:text-xs font-medium text-white">
-                It&apos;s time to go
-              </span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -53,17 +40,6 @@ export function HeroSection() {
               <br />
               make it happen, <span className="text-sky-400">Travel</span>
             </motion.h1>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex items-center gap-2 sm:gap-3"
-            >
-              <div className="w-6 sm:w-10 h-1 bg-red-500 rounded-full" />
-              <div className="w-4 sm:w-6 h-1 bg-yellow-400 rounded-full" />
-            </motion.div>
           </div>
 
           {/* Right: Buttons + Stats */}
