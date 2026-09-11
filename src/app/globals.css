@@ -327,11 +327,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Prevent layout shifts from framer-motion animations */
-section {
-  contain: layout style;
-}
-
 /* Smooth theme transitions */
 *,
 *::before,

@@ -12,14 +12,17 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[85vh] flex items-end overflow-hidden pb-40">
       <Image
-        src="/hero-bg.png.png"
+        src="/hero-bg.png"
         alt="Travel background"
         fill
+        sizes="100vw"
         className="object-cover object-center"
         priority
       />
 
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-black/20" />
+
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
       <div className="relative z-10 container-premium mx-auto px-4 w-full">
         <div className="flex flex-col lg:flex-row items-end justify-between gap-8">
