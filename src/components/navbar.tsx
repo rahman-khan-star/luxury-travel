@@ -4,13 +4,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   Menu,
   X,
   ChevronDown,
   Sun,
   Moon,
-  Plane,
 } from "lucide-react";
 import { navLinks } from "@/data";
 import { cn } from "@/lib/utils";
@@ -45,9 +45,7 @@ export function Navbar() {
       >
         <div className="container-premium mx-auto flex items-center justify-between px-4 py-2.5">
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-500 shrink-0">
-              <Plane className="h-4 w-4 text-white" />
-            </div>
+            <Image src="/logo travel 2-01.png" alt="WADI AL DHAID TOURS" width={32} height={32} className="shrink-0 object-contain" />
             <div className="flex flex-col">
               <span className="text-sm font-bold leading-tight text-slate-800 dark:text-white tracking-tight">
                 WADI AL DHAID TOURS

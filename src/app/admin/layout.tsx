@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   LayoutGrid,
   MapPin,
@@ -19,7 +20,6 @@ import {
   Bell,
   User,
   Home,
-  Plane,
   Users,
 } from "lucide-react";
 
@@ -106,9 +106,7 @@ export default function AdminLayout({
         <div className="flex items-center justify-between px-4 py-5 border-b border-border dark:border-white/10">
           {sidebarOpen && (
             <Link href="/admin" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-500 shrink-0">
-                <Plane className="h-4 w-4 text-white" />
-              </div>
+              <Image src="/logo travel 2-01.png" alt="WADI AL DHAID TOURS" width={36} height={36} className="shrink-0 object-contain" />
               <div className="flex flex-col">
                 <span className="text-sm font-bold leading-tight text-text dark:text-white tracking-tight">
                   WADI AL DHAID TOURS
@@ -191,9 +189,7 @@ export default function AdminLayout({
             >
               <div className="flex items-center justify-between px-4 py-5 border-b border-border dark:border-white/10">
                 <Link href="/admin" className="flex items-center gap-2">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-500 shrink-0">
-                    <Plane className="h-4 w-4 text-white" />
-                  </div>
+                  <Image src="/logo travel 2-01.png" alt="WADI AL DHAID TOURS" width={36} height={36} className="shrink-0 object-contain" />
                   <div className="flex flex-col">
                     <span className="text-sm font-bold leading-tight text-text dark:text-white tracking-tight">
                       WADI AL DHAID TOURS

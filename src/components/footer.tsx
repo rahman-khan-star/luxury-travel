@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -9,7 +10,6 @@ import {
   MessageCircle,
   Hash,
   Play,
-  Plane,
 } from "lucide-react";
 
 const footerLinks = {
@@ -46,9 +46,7 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-500">
-                <Plane className="h-5 w-5 text-white" />
-              </div>
+              <Image src="/logo travel 2-01.png" alt="WADI AL DHAID TOURS" width={40} height={40} className="object-contain" />
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-white leading-tight">
                   WADI AL DHAID TOURS
