@@ -33,7 +33,7 @@ export function SearchTrips() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-xl border border-slate-100 dark:border-slate-700"
+          className="rounded-2xl bg-white dark:bg-slate-800 p-4 shadow-xl border border-slate-100 dark:border-slate-700"
         >
           <div className="flex gap-1.5 sm:gap-2 mb-4 sm:mb-5">
             {tabs.map((tab) => {
@@ -64,13 +64,13 @@ export function SearchTrips() {
               transition={{ duration: 0.2 }}
             >
               {activeTab === "flights" && (
-                <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-                  <div className="space-y-1.5 sm:space-y-2">
+                <div className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+                  <div className="space-y-1 sm:space-y-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                       From
                     </label>
-                    <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 sm:px-4 py-2.5 sm:py-3.5">
-                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-sky-500 shrink-0" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-2 sm:px-3 py-2 sm:py-2.5">
+                      <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-sky-500 shrink-0" />
                       <input
                         type="text"
                         placeholder="Departure city"
@@ -81,12 +81,12 @@ export function SearchTrips() {
                     </div>
                   </div>
 
-                  <div className="space-y-1.5 sm:space-y-2">
+                  <div className="space-y-1 sm:space-y-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                       To
                     </label>
-                    <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 sm:px-4 py-2.5 sm:py-3.5">
-                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-orange-500 shrink-0" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-2 sm:px-3 py-2 sm:py-2.5">
+                      <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-orange-500 shrink-0" />
                       <input
                         type="text"
                         placeholder="Destination"
@@ -97,12 +97,12 @@ export function SearchTrips() {
                     </div>
                   </div>
 
-                  <div className="space-y-1.5 sm:space-y-2">
+                  <div className="space-y-1 sm:space-y-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                       Date
                     </label>
-                    <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 sm:px-4 py-2.5 sm:py-3.5">
-                      <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-500 shrink-0" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-2 sm:px-3 py-2 sm:py-2.5">
+                      <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-500 shrink-0" />
                       <input
                         type="text"
                         placeholder="Select date"
@@ -116,9 +116,9 @@ export function SearchTrips() {
                   <div className="flex items-end">
                     <Link
                       href="/tour-packages"
-                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 sm:px-6 py-2.5 sm:py-3.5 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/30"
+                      className="flex w-full items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-sky-500 px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/30"
                     >
-                      <Search className="h-4 w-4 sm:h-5 sm:w-5" />
+                      <Search className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       Search Flights
                     </Link>
                   </div>
@@ -126,13 +126,13 @@ export function SearchTrips() {
               )}
 
               {activeTab === "hotels" && (
-                <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-                  <div className="space-y-1.5 sm:space-y-2">
+                <div className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+                  <div className="space-y-1 sm:space-y-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                       Destination
                     </label>
-                    <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 sm:px-4 py-2.5 sm:py-3.5">
-                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-sky-500 shrink-0" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-2 sm:px-3 py-2 sm:py-2.5">
+                      <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-sky-500 shrink-0" />
                       <input
                         type="text"
                         placeholder="City or hotel"
@@ -143,12 +143,12 @@ export function SearchTrips() {
                     </div>
                   </div>
 
-                  <div className="space-y-1.5 sm:space-y-2">
+                  <div className="space-y-1 sm:space-y-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                       Check-in
                     </label>
-                    <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 sm:px-4 py-2.5 sm:py-3.5">
-                      <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-500 shrink-0" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-2 sm:px-3 py-2 sm:py-2.5">
+                      <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-500 shrink-0" />
                       <input
                         type="text"
                         placeholder="Select date"
@@ -159,12 +159,12 @@ export function SearchTrips() {
                     </div>
                   </div>
 
-                  <div className="space-y-1.5 sm:space-y-2">
+                  <div className="space-y-1 sm:space-y-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                       Guests
                     </label>
-                    <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 sm:px-4 py-2.5 sm:py-3.5">
-                      <Users className="h-4 w-4 sm:h-5 sm:w-5 text-orange-500 shrink-0" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-2 sm:px-3 py-2 sm:py-2.5">
+                      <Users className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-orange-500 shrink-0" />
                       <input
                         type="text"
                         placeholder="How many?"
@@ -178,9 +178,9 @@ export function SearchTrips() {
                   <div className="flex items-end">
                     <Link
                       href="/hotels"
-                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 sm:px-6 py-2.5 sm:py-3.5 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/30"
+                      className="flex w-full items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-sky-500 px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/30"
                     >
-                      <Search className="h-4 w-4 sm:h-5 sm:w-5" />
+                      <Search className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       Search Hotels
                     </Link>
                   </div>
@@ -188,13 +188,13 @@ export function SearchTrips() {
               )}
 
               {activeTab === "trips" && (
-                <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-                  <div className="space-y-1.5 sm:space-y-2">
+                <div className="grid gap-2 sm:gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+                  <div className="space-y-1 sm:space-y-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                       From
                     </label>
-                    <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 sm:px-4 py-2.5 sm:py-3.5">
-                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-sky-500 shrink-0" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-2 sm:px-3 py-2 sm:py-2.5">
+                      <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-sky-500 shrink-0" />
                       <input
                         type="text"
                         placeholder="Departure city"
@@ -205,12 +205,12 @@ export function SearchTrips() {
                     </div>
                   </div>
 
-                  <div className="space-y-1.5 sm:space-y-2">
+                  <div className="space-y-1 sm:space-y-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                       Destination
                     </label>
-                    <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 sm:px-4 py-2.5 sm:py-3.5">
-                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-orange-500 shrink-0" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-2 sm:px-3 py-2 sm:py-2.5">
+                      <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-orange-500 shrink-0" />
                       <input
                         type="text"
                         placeholder="Where to?"
@@ -221,12 +221,12 @@ export function SearchTrips() {
                     </div>
                   </div>
 
-                  <div className="space-y-1.5 sm:space-y-2">
+                  <div className="space-y-1 sm:space-y-1.5">
                     <label className="text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                       Duration
                     </label>
-                    <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-3 sm:px-4 py-2.5 sm:py-3.5">
-                      <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-500 shrink-0" />
+                    <div className="flex items-center gap-1.5 sm:gap-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 px-2 sm:px-3 py-2 sm:py-2.5">
+                      <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-500 shrink-0" />
                       <input
                         type="text"
                         placeholder="Select dates"
@@ -240,9 +240,9 @@ export function SearchTrips() {
                   <div className="flex items-end">
                     <Link
                       href="/tour-packages"
-                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-4 sm:px-6 py-2.5 sm:py-3.5 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/30"
+                      className="flex w-full items-center justify-center gap-1.5 sm:gap-2 rounded-xl bg-sky-500 px-3 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:bg-sky-600 hover:shadow-lg hover:shadow-sky-500/30"
                     >
-                      <Search className="h-4 w-4 sm:h-5 sm:w-5" />
+                      <Search className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       Search Trips
                     </Link>
                   </div>
