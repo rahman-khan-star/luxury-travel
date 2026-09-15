@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Plus,
@@ -10,6 +10,8 @@ import {
   Star,
   X,
   Save,
+  Loader2,
+  AlertTriangle,
 } from "lucide-react";
 import { testimonials as initialTestimonials } from "@/data";
 import type { Testimonial } from "@/types";
@@ -17,6 +19,9 @@ import type { Testimonial } from "@/types";
 export default function AdminTestimonialsPage() {
   const [testimonials, setTestimonials] =
     useState<Testimonial[]>(initialTestimonials);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [editing, setEditing] = useState<Testimonial | null>(null);
   const [form, setForm] = useState({
@@ -27,6 +32,24 @@ export default function AdminTestimonialsPage() {
     text: "",
     package: "",
   });
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  async function fetchTestimonials() {
+    try {
+      setLoading(true);
+      const res = await fetch("/api/testimonials");
+      if (!res.ok) throw new Error("Failed to fetch testimonials");
+      const data = await res.json();
+      setTestimonials(data.testimonials);
+    } catch {
+      setError("Could not load testimonials. Showing cached data.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const openAdd = () => {
     setEditing(null);
@@ -54,30 +77,63 @@ export default function AdminTestimonialsPage() {
     setShowModal(true);
   };
 
-  const handleSave = () => {
-    const newT: Testimonial = {
-      id: editing?.id || String(Date.now()),
-      name: form.name,
-      avatar: form.avatar || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80",
-      location: form.location,
-      rating: form.rating,
-      text: form.text,
-      package: form.package,
-    };
+  async function handleSave() {
+    setSaving(true);
+    try {
+      const testimonialData = {
+        name: form.name,
+        avatar: form.avatar || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80",
+        location: form.location,
+        rating: form.rating,
+        text: form.text,
+        package: form.package,
+      };
 
-    if (editing) {
-      setTestimonials(testimonials.map((t) => (t.id === editing.id ? newT : t)));
-    } else {
-      setTestimonials([newT, ...testimonials]);
-    }
-    setShowModal(false);
-  };
+      const url = editing ? `/api/testimonials/${editing.id}` : "/api/testimonials";
+      const method = editing ? "PUT" : "POST";
+      const body = editing ? { ...testimonialData, id: editing.id } : testimonialData;
+      const res = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
 
-  const handleDelete = (id: string) => {
-    if (confirm("Delete this testimonial?")) {
-      setTestimonials(testimonials.filter((t) => t.id !== id));
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Failed to save testimonial");
+      }
+
+      await fetchTestimonials();
+      setShowModal(false);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to save testimonial";
+      setError(msg);
+      setTimeout(() => setError(null), 5000);
+    } finally {
+      setSaving(false);
     }
-  };
+  }
+
+  async function handleDelete(id: string) {
+    if (!confirm("Delete this testimonial?")) return;
+    try {
+      const res = await fetch(`/api/testimonials/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error("Failed to delete testimonial");
+      await fetchTestimonials();
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to delete testimonial";
+      setError(msg);
+      setTimeout(() => setError(null), 5000);
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <Loader2 className="h-8 w-8 animate-spin text-secondary" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -95,6 +151,13 @@ export default function AdminTestimonialsPage() {
           Add Testimonial
         </button>
       </div>
+
+      {error && (
+        <div className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 dark:bg-red-900/20 dark:border-red-800/50">
+          <AlertTriangle className="h-4 w-4 text-red-500" />
+          <p className="text-sm text-red-700 dark:text-red-400">{error}</p>
+        </div>
+      )}
 
       <div className="grid gap-4 sm:grid-cols-2">
         {testimonials.map((t, i) => (
@@ -265,9 +328,10 @@ export default function AdminTestimonialsPage() {
               </button>
               <button
                 onClick={handleSave}
-                className="inline-flex items-center gap-2 rounded-xl gradient-gold px-4 py-2.5 text-sm font-semibold text-white"
+                disabled={saving}
+                className="inline-flex items-center gap-2 rounded-xl gradient-gold px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
               >
-                <Save className="h-4 w-4" />
+                {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
                 {editing ? "Update" : "Save"}
               </button>
             </div>

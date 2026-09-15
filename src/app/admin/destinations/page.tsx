@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Plus,
@@ -12,13 +12,18 @@ import {
   X,
   MapPin,
   Save,
+  Loader2,
+  AlertTriangle,
 } from "lucide-react";
 import { destinations as initialDestinations } from "@/data";
 import type { Destination } from "@/types";
 
 export default function AdminDestinationsPage() {
-  const [destinations, setDestinations] =
-    useState<Destination[]>(initialDestinations);
+  const [destinations, setDestinations] = useState<Destination[]>(initialDestinations);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [editing, setEditing] = useState<Destination | null>(null);
@@ -31,6 +36,24 @@ export default function AdminDestinationsPage() {
     priceFrom: 500,
     tags: "",
   });
+
+  useEffect(() => {
+    fetchDestinations();
+  }, []);
+
+  async function fetchDestinations() {
+    try {
+      setLoading(true);
+      const res = await fetch("/api/destinations");
+      if (!res.ok) throw new Error("Failed to fetch destinations");
+      const data = await res.json();
+      setDestinations(data.destinations);
+    } catch {
+      setError("Could not load destinations. Showing cached data.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const filtered = destinations.filter(
     (d) =>
@@ -66,34 +89,71 @@ export default function AdminDestinationsPage() {
     setShowModal(true);
   };
 
-  const handleSave = () => {
-    const newDest: Destination = {
-      id: editing?.id || form.name.toLowerCase().replace(/\s+/g, "-"),
-      name: form.name,
-      country: form.country,
-      description: form.description,
-      image: form.image || "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
-      rating: form.rating,
-      priceFrom: form.priceFrom,
-      tags: form.tags
-        .split(",")
-        .map((t) => t.trim())
-        .filter(Boolean),
-    };
+  async function handleSave() {
+    setSaving(true);
+    try {
+      const newDest: Destination = {
+        id: editing?.id || form.name.toLowerCase().replace(/\s+/g, "-"),
+        name: form.name,
+        country: form.country,
+        description: form.description,
+        image: form.image || "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
+        rating: form.rating,
+        priceFrom: form.priceFrom,
+        tags: form.tags
+          .split(",")
+          .map((t) => t.trim())
+          .filter(Boolean),
+      };
 
-    if (editing) {
-      setDestinations(destinations.map((d) => (d.id === editing.id ? newDest : d)));
-    } else {
-      setDestinations([newDest, ...destinations]);
-    }
-    setShowModal(false);
-  };
+      const url = editing ? `/api/destinations/${editing.id}` : "/api/destinations";
+      const method = editing ? "PUT" : "POST";
+      const body = editing ? newDest : { ...newDest, id: undefined };
+      const res = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this destination?")) {
-      setDestinations(destinations.filter((d) => d.id !== id));
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Failed to save destination");
+      }
+
+      await fetchDestinations();
+      setShowModal(false);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to save destination";
+      setError(msg);
+      setTimeout(() => setError(null), 5000);
+    } finally {
+      setSaving(false);
     }
-  };
+  }
+
+  async function handleDelete(id: string) {
+    if (!confirm("Are you sure you want to delete this destination?")) return;
+    setDeleting(id);
+    try {
+      const res = await fetch(`/api/destinations/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error("Failed to delete destination");
+      await fetchDestinations();
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to delete destination";
+      setError(msg);
+      setTimeout(() => setError(null), 5000);
+    } finally {
+      setDeleting(null);
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <Loader2 className="h-8 w-8 animate-spin text-secondary" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -111,6 +171,13 @@ export default function AdminDestinationsPage() {
           Add Destination
         </button>
       </div>
+
+      {error && (
+        <div className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 dark:bg-red-900/20 dark:border-red-800/50">
+          <AlertTriangle className="h-4 w-4 text-red-500" />
+          <p className="text-sm text-red-700 dark:text-red-400">{error}</p>
+        </div>
+      )}
 
       <div className="flex items-center gap-2 rounded-xl border border-border bg-white px-4 py-3 dark:bg-navy-800 dark:border-white/10">
         <Search className="h-4 w-4 text-text-light dark:text-white/40" />
@@ -168,7 +235,8 @@ export default function AdminDestinationsPage() {
                 </button>
                 <button
                   onClick={() => handleDelete(dest.id)}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-red-50 dark:hover:bg-red-500/10"
+                  disabled={deleting === dest.id}
+                  className="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-red-50 dark:hover:bg-red-500/10 disabled:opacity-50"
                 >
                   <Trash2 className="h-4 w-4 text-red-500" />
                 </button>
@@ -306,9 +374,10 @@ export default function AdminDestinationsPage() {
               </button>
               <button
                 onClick={handleSave}
-                className="inline-flex items-center gap-2 rounded-xl gradient-gold px-4 py-2.5 text-sm font-semibold text-white"
+                disabled={saving}
+                className="inline-flex items-center gap-2 rounded-xl gradient-gold px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
               >
-                <Save className="h-4 w-4" />
+                {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
                 {editing ? "Update" : "Save"}
               </button>
             </div>

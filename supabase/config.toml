@@ -1,0 +1,17 @@
+{
+  "project_id": "your-supabase-project-id",
+  "api": {
+    "url": "https://your-project.supabase.co",
+    "anonKey": "your-supabase-anon-key"
+  },
+  "db": {
+    "schemas": ["public"],
+    "tables": []
+  },
+  "storage": {
+    "buckets": []
+  },
+  "auth": {
+    "enabled": false
+  }
+}

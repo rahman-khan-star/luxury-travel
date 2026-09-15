@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Plus, Edit2, Trash2, X, Save, Calendar } from "lucide-react";
+import { Plus, Edit2, Trash2, X, Save, Calendar, Loader2, AlertTriangle } from "lucide-react";
 import { blogPosts as initialPosts } from "@/data";
 import type { BlogPost } from "@/types";
 
 export default function AdminBlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [editing, setEditing] = useState<BlogPost | null>(null);
   const [form, setForm] = useState({
@@ -19,6 +22,24 @@ export default function AdminBlogPage() {
     category: "",
     slug: "",
   });
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  async function fetchPosts() {
+    try {
+      setLoading(true);
+      const res = await fetch("/api/blog");
+      if (!res.ok) throw new Error("Failed to fetch blog posts");
+      const data = await res.json();
+      setPosts(data.posts);
+    } catch {
+      setError("Could not load blog posts. Showing cached data.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   const openAdd = () => {
     setEditing(null);
@@ -48,27 +69,64 @@ export default function AdminBlogPage() {
     setShowModal(true);
   };
 
-  const handleSave = () => {
-    const newPost: BlogPost = {
-      id: editing?.id || String(Date.now()),
-      ...form,
-      slug: form.slug || form.title.toLowerCase().replace(/\s+/g, "-"),
-      image: form.image || "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
-    };
+  async function handleSave() {
+    setSaving(true);
+    try {
+      const postData = {
+        title: form.title,
+        excerpt: form.excerpt,
+        image: form.image || "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80",
+        author: form.author,
+        date: form.date,
+        category: form.category,
+        slug: form.slug || form.title.toLowerCase().replace(/\s+/g, "-"),
+      };
 
-    if (editing) {
-      setPosts(posts.map((p) => (p.id === editing.id ? newPost : p)));
-    } else {
-      setPosts([newPost, ...posts]);
-    }
-    setShowModal(false);
-  };
+      const url = editing ? `/api/blog/${editing.id}` : "/api/blog";
+      const method = editing ? "PUT" : "POST";
+      const body = editing ? { ...postData, id: editing.id } : postData;
+      const res = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
 
-  const handleDelete = (id: string) => {
-    if (confirm("Delete this blog post?")) {
-      setPosts(posts.filter((p) => p.id !== id));
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Failed to save blog post");
+      }
+
+      await fetchPosts();
+      setShowModal(false);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to save blog post";
+      setError(msg);
+      setTimeout(() => setError(null), 5000);
+    } finally {
+      setSaving(false);
     }
-  };
+  }
+
+  async function handleDelete(id: string) {
+    if (!confirm("Delete this blog post?")) return;
+    try {
+      const res = await fetch(`/api/blog/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error("Failed to delete blog post");
+      await fetchPosts();
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to delete blog post";
+      setError(msg);
+      setTimeout(() => setError(null), 5000);
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <Loader2 className="h-8 w-8 animate-spin text-secondary" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -86,6 +144,13 @@ export default function AdminBlogPage() {
           New Post
         </button>
       </div>
+
+      {error && (
+        <div className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 dark:bg-red-900/20 dark:border-red-800/50">
+          <AlertTriangle className="h-4 w-4 text-red-500" />
+          <p className="text-sm text-red-700 dark:text-red-400">{error}</p>
+        </div>
+      )}
 
       <div className="grid gap-4 sm:grid-cols-2">
         {posts.map((post, i) => (
@@ -233,9 +298,10 @@ export default function AdminBlogPage() {
               </button>
               <button
                 onClick={handleSave}
-                className="inline-flex items-center gap-2 rounded-xl gradient-gold px-4 py-2.5 text-sm font-semibold text-white"
+                disabled={saving}
+                className="inline-flex items-center gap-2 rounded-xl gradient-gold px-4 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
               >
-                <Save className="h-4 w-4" />
+                {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
                 {editing ? "Update" : "Publish"}
               </button>
             </div>

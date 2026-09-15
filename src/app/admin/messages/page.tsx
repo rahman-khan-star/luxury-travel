@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Mail,
@@ -9,72 +9,75 @@ import {
   Calendar,
   Trash2,
   Eye,
-  X,
-  CheckCircle,
+  Loader2,
+  AlertTriangle,
 } from "lucide-react";
-
-interface Message {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  subject: string;
-  message: string;
-  date: string;
-  read: boolean;
-}
-
-const initialMessages: Message[] = [
-  {
-    id: "1",
-    name: "Ahmed Khan",
-    email: "ahmed@example.com",
-    phone: "+92 300 1234567",
-    subject: "Dubai Tour Inquiry",
-    message: "Hi, I'm interested in the Luxury Dubai Experience package for a family of 4. Can you provide more details about child discounts?",
-    date: "2026-01-15",
-    read: false,
-  },
-  {
-    id: "2",
-    name: "Sarah Ali",
-    email: "sarah@example.com",
-    phone: "+971 55 9876543",
-    subject: "Umrah Package Question",
-    message: "I'd like to know the available dates for the Premium Umrah Package in February. Also, is there a group discount for 6 people?",
-    date: "2026-01-14",
-    read: true,
-  },
-  {
-    id: "3",
-    name: "Omar Hassan",
-    email: "omar@example.com",
-    phone: "+44 7912 345678",
-    subject: "Visa Service Request",
-    message: "I need a UAE tourist visa for myself and my wife. We're planning to visit in March. What documents do we need?",
-    date: "2026-01-13",
-    read: false,
-  },
-];
+import type { Message } from "@/types";
 
 export default function AdminMessagesPage() {
-  const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [selected, setSelected] = useState<Message | null>(null);
+  const [deleting, setDeleting] = useState<string | null>(null);
 
-  const markRead = (id: string) => {
-    setMessages(
-      messages.map((m) => (m.id === id ? { ...m, read: true } : m))
-    );
+  async function fetchMessages() {
+    try {
+      const res = await fetch("/api/messages");
+      if (!res.ok) throw new Error("Failed to fetch messages");
+      const data = await res.json();
+      setMessages(data.messages);
+    } catch {
+      setError("Could not load messages.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchMessages();
+  }, []);
+
+  const markRead = async (id: string) => {
+    try {
+      await fetch(`/api/messages/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ read: true }),
+      });
+      setMessages((prev) =>
+        prev.map((m) => (m.id === id ? { ...m, read: true } : m))
+      );
+    } catch {
+      // Silently fail for UX
+    }
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm("Delete this message?")) {
-      setMessages(messages.filter((m) => m.id !== id));
+  const handleDelete = async (id: string) => {
+    if (!confirm("Delete this message?")) return;
+    setDeleting(id);
+    try {
+      await fetch(`/api/messages/${id}`, { method: "DELETE" });
+      setMessages((prev) => prev.filter((m) => m.id !== id));
       if (selected?.id === id) setSelected(null);
+    } catch {
+      setError("Failed to delete message.");
+      setTimeout(() => setError(null), 5000);
+    } finally {
+      setDeleting(null);
     }
   };
 
   const unreadCount = messages.filter((m) => !m.read).length;
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <Loader2 className="h-8 w-8 animate-spin text-secondary" />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -86,6 +89,13 @@ export default function AdminMessagesPage() {
           {unreadCount} unread message{unreadCount !== 1 ? "s" : ""}
         </p>
       </div>
+
+      {error && (
+        <div className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3 dark:bg-red-900/20 dark:border-red-800/50">
+          <AlertTriangle className="h-4 w-4 text-red-500" />
+          <p className="text-sm text-red-700 dark:text-red-400">{error}</p>
+        </div>
+      )}
 
       <div className="grid gap-4 lg:grid-cols-5">
         {/* Message List */}
@@ -152,7 +162,8 @@ export default function AdminMessagesPage() {
                 </div>
                 <button
                   onClick={() => handleDelete(selected.id)}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-red-50 dark:hover:bg-red-500/10"
+                  disabled={deleting === selected.id}
+                  className="flex h-8 w-8 items-center justify-center rounded-lg hover:bg-red-50 dark:hover:bg-red-500/10 disabled:opacity-50"
                 >
                   <Trash2 className="h-4 w-4 text-red-500" />
                 </button>

@@ -12,7 +12,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-[80vh] flex items-end overflow-hidden pb-40">
       <Image
-        src="/hero-bg.jpg"
+        src="/my-new-image.jpg"
         alt="Travel background"
         fill
         sizes="100vw"

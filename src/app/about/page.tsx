@@ -12,45 +12,53 @@ const values = [
   {
     icon: Heart,
     title: "Passion for Excellence",
-    description: "Every detail matters. We obsess over perfection to deliver experiences that exceed expectations.",
+    description:
+      "Every detail matters. We obsess over perfection to deliver experiences that exceed expectations.",
   },
   {
     icon: Shield,
     title: "Trust & Integrity",
-    description: "Transparent pricing, honest advice, and unwavering commitment to our travelers' best interests.",
+    description:
+      "Transparent pricing, honest advice, and unwavering commitment to our travelers' best interests.",
   },
   {
     icon: Globe,
     title: "Global Perspective",
-    description: "Deep local knowledge combined with international standards of luxury and service.",
+    description:
+      "Deep local knowledge combined with international standards of luxury and service.",
   },
   {
     icon: Target,
     title: "Client-Centric",
-    description: "Your vision drives everything we do. Each journey is crafted around your unique desires.",
+    description:
+      "Your vision drives everything we do. Each journey is crafted around your unique desires.",
   },
 ];
 
-const team = [
+const displayedTeam = [
   {
     name: "James Mitchell",
     role: "Founder & CEO",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
   },
   {
     name: "Sarah Al-Hassan",
     role: "Head of Operations",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80",
   },
   {
     name: "Ahmed Khan",
     role: "Travel Director",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
   },
   {
     name: "Fatima Rashid",
     role: "Customer Experience Lead",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
+    image:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80",
   },
 ];
 
@@ -101,23 +109,25 @@ export default function AboutPage() {
                 become lifelong memories.
               </p>
               <div className="mt-8 grid grid-cols-3 gap-6">
-                {[
-                  { label: "Years", value: "12+" },
-                  { label: "Travelers", value: "15K+" },
-                  { label: "Countries", value: "50+" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <p
-                      className="text-3xl font-bold text-secondary"
-                      style={{ fontFamily: "var(--font-mono)" }}
-                    >
-                      {stat.value}
-                    </p>
-                    <p className="text-sm text-text-light dark:text-white/60">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
+                {
+                  [
+                    { label: "Years", value: "12+" },
+                    { label: "Travelers", value: "15K+" },
+                    { label: "Countries", value: "50+" },
+                  ].map((stat) => (
+                    <div key={stat.label}>
+                      <p
+                        className="text-3xl font-bold text-secondary"
+                        style={{ fontFamily: "var(--font-mono)" }}
+                      >
+                        {stat.value}
+                      </p>
+                      <p className="text-sm text-text-light dark:text-white/60">
+                        {stat.label}
+                      </p>
+                    </div>
+                  ))
+                }
               </div>
             </div>
             <div className="relative h-[500px] rounded-2xl overflow-hidden">
@@ -154,7 +164,7 @@ export default function AboutPage() {
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold-50 dark:bg-gold-900/20">
                   <value.icon className="h-6 w-6 text-secondary" />
                 </div>
-                <h3 className="text-lg font-bold text-text dark:text-white mb-2">
+                <h3 className="text-lg font-bold text-text dark-text-white mb-2">
                   {value.title}
                 </h3>
                 <p className="text-sm text-text-light dark:text-white/60 leading-relaxed">
@@ -180,7 +190,7 @@ export default function AboutPage() {
             </h2>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
+            {displayedTeam.map((member) => (
               <div
                 key={member.name}
                 className="premium-card text-center group"

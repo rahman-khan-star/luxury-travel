@@ -101,3 +101,33 @@ export interface TeamMember {
   isActive: boolean;
   displayOrder: number;
 }
+
+export interface Message {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  date: string;
+  read: boolean;
+}
+
+export interface Hotel {
+  id: string;
+  name: string;
+  location: string;
+  image: string;
+  rating: number;
+  price: number;
+  amenities: string[];
+}
+
+export interface Booking {
+  id: string;
+  name: string;
+  packageName: string;
+  date: string;
+  amount: number;
+  status: "Confirmed" | "Pending";
+}
