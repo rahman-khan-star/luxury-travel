@@ -1,8 +1,8 @@
 import type { Hotel } from "@/types";
 
 async function getSupabase() {
-  const { supabaseServer } = await import("./supabase-server");
-  return supabaseServer;
+  const { getSupabaseServer } = await import("./supabase-server");
+  return getSupabaseServer();
 }
 
 function toDbHotel(h: {

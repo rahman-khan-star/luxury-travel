@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Save, User, Mail, Phone, Globe, Lock } from "lucide-react";
-import { supabaseServer } from "@/lib/supabase-server";
+import { Save, User, Mail, Phone, Globe, Lock, Loader2 } from "lucide-react";
 
 export default function AdminSettingsPage() {
   const [settings, setSettings] = useState({
@@ -24,29 +23,26 @@ export default function AdminSettingsPage() {
 
   const [saved, setSaved] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     async function fetchSettings() {
       try {
-        const { data, error } = await supabaseServer
-          .from("settings")
-          .select("*")
-          .single();
-
-        if (error) throw error;
-        if (data) {
+        const res = await fetch("/api/settings");
+        if (!res.ok) throw new Error("Failed to fetch settings");
+        const data = await res.json();
+        if (data.settings) {
           setSettings({
-            companyName: data.company_name,
-            email: data.email,
-            phone: data.phone,
-            website: data.website,
-            address: data.address,
-            currency: data.currency,
-            timezone: data.timezone,
+            companyName: data.settings.company_name,
+            email: data.settings.email,
+            phone: data.settings.phone,
+            website: data.settings.website,
+            address: data.settings.address,
+            currency: data.settings.currency,
+            timezone: data.settings.timezone,
           });
         }
-      } catch (err: unknown) {
-        const message = err instanceof Error ? err.message : "Failed to fetch settings";
+      } catch {
         // Keep defaults on error
       } finally {
         setLoading(false);
@@ -57,9 +53,12 @@ export default function AdminSettingsPage() {
   }, []);
 
   const handleSave = async () => {
+    setSaving(true);
     try {
-      await supabaseServer.from("settings").upsert(
-        {
+      const res = await fetch("/api/settings", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           company_name: settings.companyName,
           email: settings.email,
           phone: settings.phone,
@@ -68,15 +67,15 @@ export default function AdminSettingsPage() {
           address: settings.address,
           currency: settings.currency,
           timezone: settings.timezone,
-        },
-        { onConflict: "company_name", count: "exact" }
-      );
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to save settings");
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
-    } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : "Failed to save settings";
-      // We'll show the error in a production UI, but for now just log
-      console.error(message);
+    } catch {
+      // Silently fail
+    } finally {
+      setSaving(false);
     }
   };
 

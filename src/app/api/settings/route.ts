@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
-import { supabaseServer } from "@/lib/supabase-server";
+import { getSupabaseServer } from "@/lib/supabase-server";
 
 export async function GET() {
   try {
+    const supabaseServer = getSupabaseServer();
     const { data, error } = await supabaseServer
       .from("settings")
       .select("*")
@@ -29,6 +30,7 @@ export async function PUT(request: Request) {
       );
     }
 
+    const supabaseServer = getSupabaseServer();
     const { data, error } = await supabaseServer
       .from("settings")
       .upsert(
